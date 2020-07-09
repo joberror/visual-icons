@@ -42,9 +42,16 @@ html(lang='en')
 				li.dl
 					a(href='', title='Github → Download') #[svg(data-url='assets/misc/svg/download.svg')]
 
-		section.project-desc
-			h1 #[em Tasty SVG] Icons #[em for] #[br] Web Developers #[em &] UI
-			p MIXED . CATEGORIZED . COMPRESSED
+		section.project
+			h1.desc #[em Tasty SVG] Icons #[em for] #[br] Web Developers #[em &] UI
+			ul
+				li.features MIXED . CATEGORIZED . COMPRESSED
+				li.format
+					ul
+						li.svg SVG
+						li.ai AI
+						li.eps EPS
+						li.pdf PDF
 
 		script(type='module').
 			import { svgLoader as svg } from '/dist/main.min.js';
