@@ -1,0 +1,64 @@
+html {
+  line-sizing: normal;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+svg {
+  overflow: hidden;
+}
+
+em,
+address {
+  font-style: normal;
+}

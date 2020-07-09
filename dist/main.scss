@@ -1,0 +1,208 @@
+// Imports
+@import "node_modules/sass-mq/mq";
+@import "reset";
+@import "mixins";
+
+// Sass Variables
+// Breakpoints
+$mq-breakpoints: (
+  "phone": 480px,
+  "tablet": 768px,
+  "desktop": 1300px,
+  "wide": 1600px,
+);
+
+// Define customs
+:root,
+[data-theme="default"] {
+  // Variables - Font
+  --font-family: "Courier Prime", serif;
+  --font-family-head: "Overpass mono", sans-serif;
+  --font-size: 1.6rem;
+  --line-height: 1;
+
+  // Variables - Colors
+  // background
+  --color-bg: #{gray(3)};
+  // customs
+  --color-contrast-high: hsl(0, 0%, 89%);
+  --color-contrast-higher: white;
+  // svg
+  --color-svg-fill: hsla(0, 0%, 100%, 0.973);
+  // download
+  --color-dl: hsl(153, 68%, 42%);
+  --color-dl-svg: white;
+
+  // Defaults
+  position: relative;
+}
+
+// Default - theme
+[data-theme] {
+  color: var(--color-contrast-higher);
+  background-color: var(--color-bg);
+}
+
+// Theme - Light
+[data-theme="light"] {
+  --color-bg: white;
+  --color-contrast-high: hsl(240, 4%, 20%);
+  --color-contrast-higher: black;
+  --color-svg-fill: #{gray(10)};
+  --color-dl-svg: var(--color-dl);
+}
+// Scrollbar
+@include scrollbar(var(--color-bg), gray(10), 0, 1px);
+
+// Theme
+body {
+  margin: 4vh 4vw;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  text-rendering: optimizeLegibility;
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    ul {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      align-items: baseline;
+      display: flex;
+      font-family: var(--font-family-head);
+      font-size: x-large;
+      font-weight: 600;
+      color: gray(40);
+      flex-direction: column;
+
+      em {
+        color: gray(60);
+      }
+
+      span {
+        width: 8px;
+        height: 8px;
+        margin-left: -10px;
+        background-color: gray(60);
+      }
+    }
+
+    .ver {
+      display: inline-block;
+      padding: 2px 4px 0;
+      margin-right: auto;
+      margin-left: 10px;
+      font-size: small;
+      font-weight: 600;
+      line-height: 1;
+      color: white;
+      background-color: var(--color-dl);
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .dl {
+      a {
+        display: inline-block;
+        width: 20px;
+        padding: 12px;
+        border: 2px solid var(--color-dl);
+        border-radius: 2px;
+        transition: 1s linear;
+
+        svg path {
+          fill: var(--color-dl-svg);
+          stroke: var(--color-dl-svg);
+          stroke-width: 1;
+        }
+
+        &:hover {
+          background-color: var(--color-dl);
+
+          svg path {
+            fill: white;
+            stroke: white;
+          }
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      margin-right: calc(50% - 250px);
+
+      ul { margin-right: 20px; }
+
+      a {
+        font-size: large;
+        transition: 500ms linear;
+
+        &:hover {
+          transition: 500ms linear;
+        }
+      }
+
+      .license {
+        a {
+          display: inline-block;
+          padding: 6px 8px 3px;
+          font-weight: 600;
+          color: var(--color-bg);
+          background-color: var(--color-contrast-higher);
+
+          &:hover {
+            color: var(--color-contrast-higher);
+            background-color: var(--color-bg);
+          }
+        }
+      }
+
+      .github {
+        li {
+          margin-left: 10px;
+        }
+
+        a {
+          color: var(--color-contrast-higher);
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  .project-desc {
+    display: flex;
+    margin-top: 20vh;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 5.2rem;
+
+      em {
+        color: gray(50);
+      }
+    }
+
+    p {
+      margin-top: 5vh;
+      font-family: var(--font-family-head);
+      font-size: larger;
+      font-weight: 700;
+      color: gray(40);
+    }
+
+  }
+}

@@ -1,0 +1,18 @@
+{
+	"extends": "stylelint-config-primer",
+	"ignoreFiles": ["**/*.js"],
+	"plugins": [
+		"stylelint-scss",
+		"stylelint-order",
+		"stylelint-images"
+	],
+	"rules": {
+    "images/broken": true,
+		"images/prefer-data-uri": 256,
+		"color-named": "always-where-possible",
+		"scss/at-function-named-arguments": "never",
+		"selector-max-type": 5,
+		"selector-max-compound-selectors": 6,
+		"max-nesting-depth": 6
+  }
+}
