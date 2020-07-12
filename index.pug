@@ -1,31 +1,19 @@
 doctype html
 html(lang='en')
+	include svg.pug
+
 	meta(charset="UTF-8")
 	-
-		var meta = [
-			{author: 'Bolarinwa Olakunle'},
-			{rating: 'General'},
-			{description: 'Tasty and visual icons free for developers and UI'},
-			{copyright: 'Joberror, ©️ 2020'},
-			{viewport: 'width=device-width, initial-scale=1.0'},
-			{'theme-color': '#141414'},
-			{'msapplication-navbutton-color': '#141414'},
-			{'apple-mobile-web-app-capable': 'yes'},
-			{'apple-mobile-web-app-status-bar-style': 'black-translucent'}
-		];
-
 	each key in meta
 		each content, handle in key
 			meta(name= handle, content= content)
 
 	title Visual Icons
 	base(href='/')
-	link(rel="dns-prefetch", href="//fonts.googleapis.com")
-	link(rel="dns-prefetch", href="//storage.googleapis.com")
-	link(rel="preconnect", href="//fonts.googleapis.com")
-	link(rel="preconnect", href="//storage.googleapis.com")
-	link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Overpass+Mono:wght@300;400;600;700&display=swap')
-	link(rel='stylesheet', href='dist/main.min.css')
+	-
+	each key in link
+		each content, handle in key
+			link(rel= handle, href= content)
 
 	body(data-theme='default')
 		nav
@@ -40,7 +28,7 @@ html(lang='en')
 						li #[a(href='', title='Keep the project alive by donating') .Donate]
 						li #[a(href='', title='Star this project on GitHub for awareness') .Star]
 				li.dl
-					a(href='', title='Github → Download') #[svg(data-url='assets/misc/svg/download.svg')]
+					a(href='', title='Github → Download') #[svg(data-url='assets/svg/misc/download.svg')]
 
 		section.project
 			h1.desc #[em Tasty SVG] Icons #[em for] #[br] Web Developers #[em &] UI
@@ -52,6 +40,21 @@ html(lang='en')
 						li.ai AI
 						li.eps EPS
 						li.pdf PDF
+
+		section.preview
+			ul.media
+				-
+				each val in media
+					li
+						svg(data-url='assets/svg/media/'+val)
+			ul.misc
+			ul.apps
+			ul.devices
+			ul.social
+			ul.files
+			ul.weather
+			ul.brands
+			ul.fashion
 
 		script(type='module').
 			import { svgLoader as svg } from '/dist/main.min.js';
