@@ -25,7 +25,7 @@ $mq-breakpoints: (
   // background
   --color-bg: #{gray(3)};
   // customs
-  --color-contrast-high: hsl(0, 0%, 89%);
+  --color-contrast-high: hsla(0, 0%, 89%, 0.322);
   --color-contrast-higher: white;
   --color-pink-contrast: hsl(352, 82%, 91%);
   // svg
@@ -246,29 +246,35 @@ body {
   }
 
   .preview {
-    display: flex;
+    display: grid;
     margin-top: 10vh;
-    flex-direction: column;
-    border: 1px solid gray(5);
+    grid-template-columns: 1fr;
 
     ul {
-      display: flex;
-      margin: 0 4vw 4vh;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(6, 14.33vw);
+      gap: 1vw;
     }
 
     li {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      margin-top: 4vh;
-      margin-right: 2vw;
+      display: flex;
+      padding: 6vh 0;
+      flex-direction: column;
+      align-items: center;
+      background-color: gray(4);
+      border: 1px solid gray(6);
+
+      em {
+        display: block;
+        margin-top: 8vh;
+        color: var(--color-contrast-high);
+        text-transform: capitalize;
+      }
 
       svg {
-        width: 100%;
-        height: 100%;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
 
         path,
         circle,

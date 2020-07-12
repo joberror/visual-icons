@@ -62,3 +62,13 @@ em,
 address {
   font-style: normal;
 }
+
+section,
+div,
+ul,
+li,
+p,
+nav,
+aside {
+  box-sizing: border-box;
+}

@@ -42,21 +42,15 @@ html(lang='en')
 						li.pdf PDF
 
 		section.preview
-			ul.media
+			ul
 				-
-				each val in media
+				each val in all
 					li
-						svg(data-url='assets/svg/media/'+val)
-			ul.misc
-			ul.apps
-			ul.devices
-			ul.social
-			ul.files
-			ul.weather
-			ul.brands
-			ul.fashion
+						svg(data-url='assets/svg/'+val)
+						em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
 
 		script(type='module').
 			import { svgLoader as svg } from '/dist/main.min.js';
 			// initiate svg module
 			svg.init();
+			
