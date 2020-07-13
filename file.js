@@ -38,8 +38,8 @@ function flatDeep(arr, d = 1) {
 //   depth: null,
 //   maxArrayLength: null
 // }));
-all = flatDeep(all, 2);
-noDir = flatDeep(noDir, 2).sort();
+all = all.flat(2);
+noDir = noDir.flat(2).sort();
 
 noDir.forEach(function (a) {
   all.forEach(function (b, i) {
