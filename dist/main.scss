@@ -279,7 +279,8 @@ body {
         path,
         circle,
         ellipse,
-        line {
+        line,
+        rect {
           fill: var(--color-contrast-higher);
         }
       }
