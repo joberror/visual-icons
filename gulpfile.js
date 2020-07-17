@@ -121,7 +121,7 @@ let watch = (done) => {
 	// Watch and minify Javascript
 	gulp.watch('dist/main.js', gulp.series(minifyJS));
 	// Watch and covert pug -> html
-	gulp.watch(['dist/*.pug', 'index.pug'], gulp.series(convertPug, reload));
+	gulp.watch(['dist/svg.pug', 'index.pug'], gulp.series(convertPug, reload));
 	// Watch and minify SVG
 //	gulp.watch('assets/**/*', gulp.series(minifySvg));
 
