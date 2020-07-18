@@ -47,4 +47,4 @@ noDir.forEach(function (a) {
   });
 });
 
-console.log(sorted);
+console.log(sorted, sorted.length);
