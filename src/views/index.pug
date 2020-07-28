@@ -28,7 +28,7 @@ html(lang='en')
 						li #[a(href='', title='Keep the project alive by donating') .Donate]
 						li #[a(href='', title='Star this project on GitHub for awareness') .Star]
 				li.dl
-					a(href='', title='Github → Download') #[svg(data-url='assets/svg/misc/download.svg')]
+					a(href='', title='Github → Download') #[svg(data-url='svg/browser/download.svg')]
 
 		section.project
 			h1.desc #[em Tasty SVG] Icons #[em for] #[br] Web Developers #[em &] UI
@@ -44,12 +44,12 @@ html(lang='en')
 		section.preview
 			ul
 				-
-				each val in allSvg
+				each val in allSvg[14]
 					li
-						svg(data-url='assets/svg/'+val)
+						svg(data-url='svg/'+val)
 						em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
 
 		script(type='module').
-			import { svgLoader as svg } from './main.min.js';
+			import { svgLoader as svg } from './scripts/main.min.js';
 			// initiate svg module
 			svg.init();
