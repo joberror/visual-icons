@@ -41,12 +41,9 @@ let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'f
 
 // Get total files
 allFiles.forEach((a) => {
-  fs.readdir('./pack/' + a + '/svg/', (error, files) => {
-    total.push(files.length); // print the total number of files
-  });
+  total.push(fileList('./pack/' + a + '/svg/').length);
   svgDir.push(fileList('./src/assets/svg/' + a).map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
 });
-
 
 // List all file names in DIR >5
 
@@ -75,8 +72,10 @@ allFiles.forEach((a) => {
 app.get('/', (req, res) => {
   res.render('index', {
     // Pass SVG array to Pug for processing
-    allSvg: svgDir
+    allSvg: svgDir,
+    allTotal: total,
+    allDir: allFiles
   });
 });
 
-//console.log(svgDir[14]);
+//console.log(total[14]);

@@ -42,12 +42,17 @@ html(lang='en')
 						li.pdf PDF
 
 		section.preview
-			ul
-				-
-				each val in allSvg[14]
-					li
-						svg(data-url='svg/'+val)
-						em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
+			div
+				ul.details
+					li.total #{allTotal[14]} #[br] #[em ICONS]
+					li.name #{allDir[14]} #[br] pack
+				ul.icons
+					-
+					each val in allSvg[14]
+						li
+							span
+								svg(data-url='svg/'+val)
+							em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
 
 		script(type='module').
 			import { svgLoader as svg } from './scripts/main.min.js';

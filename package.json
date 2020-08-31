@@ -5,7 +5,6 @@
 	"homepage": "/visual-icons/",
 	"description": "Tasty and curated visual icons for developers",
 	"scripts": {
-		"start": "npm run dev && npm run ui",
 		"dev": "nodemon app.js",
 		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
@@ -32,6 +31,7 @@
 	},
 	"dependencies": {
 		"express": "^4.17.1",
+		"ghostscript4js": "^3.2.1",
 		"lodash": "^4.17.19",
 		"lodash.template": "^4.5.0",
 		"node-sass-middleware": "^0.11.0",
