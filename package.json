@@ -9,33 +9,35 @@
 		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"devDependencies": {
-		"@primer/css": "^15.0.0",
+		"@primer/css": "^15.2.0",
 		"@wemake-services/stylelint-config-scss": "^0.4.1",
-		"browser-sync": "^2.26.7",
+		"browser-sync": "^2.26.12",
 		"cssnano": "^4.1.10",
 		"fibers": "^5.0.0",
 		"gulp": "^4.0.2",
-		"gulp-load-plugins": "^2.0.3",
+		"gulp-load-plugins": "^2.0.4",
 		"gulp-terser-js": "^5.2.2",
+		"http-proxy": ">=1.18.1",
 		"node-sass": "^4.14.1",
 		"nodemon": "^2.0.4",
-		"postcss": "^7.0.32",
+		"postcss": "^8.1.1",
 		"pug": "^3.0.0",
-		"sass": "^1.26.10",
+		"sass": "^1.26.12",
 		"sass-mq": "^5.0.1",
-		"stylelint": "^13.6.1",
+		"stylelint": "^13.7.2",
 		"stylelint-config-recommended": "^3.0.0",
 		"stylelint-config-standard": "^20.0.0",
 		"stylelint-images": "^2.0.1",
-		"stylelint-order": "^4.1.0"
+		"stylelint-order": "^4.1.0",
+		"yargs-parser": ">=20.2.1"
 	},
 	"dependencies": {
 		"express": "^4.17.1",
 		"ghostscript4js": "^3.2.1",
-		"lodash": "^4.17.19",
+		"lodash": "^4.17.20",
 		"lodash.template": "^4.5.0",
 		"node-sass-middleware": "^0.11.0",
-		"stylelint-config-primer": "^9.0.0",
-		"stylelint-config-sass-guidelines": "^7.0.0"
+		"stylelint-config-primer": "^9.2.1",
+		"stylelint-config-sass-guidelines": "^7.1.0"
 	}
 }
