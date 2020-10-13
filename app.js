@@ -41,7 +41,7 @@ let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'f
 
 // Get total files
 allFiles.forEach((a) => {
-  total.push(fileList('./pack/' + a + '/svg/').length);
+  total.push(fileList('./pack/' + a + '/ai/').length);
   svgDir.push(fileList('./src/assets/svg/' + a).map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
 });
 
