@@ -1,0 +1,12 @@
+
+				li.social
+					ul.license
+						li #[a(href='', title='Licensed by Creative Commons 3.0') CC-3.0]
+					ul.github
+						li #[a(href='', title='Tweet this project') .Tweet]
+						li #[a(href='', title='Keep the project alive by donating') .Donate]
+						li #[a(href='', title='Star this project on GitHub for awareness') .Star]
+				li.dl
+					a(href='', title='Github → Download') #[svg(data-url='svg/browser/download.svg')]
+
+          li.features MIXED . CATEGORIZED . COMPRESSED

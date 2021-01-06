@@ -20,34 +20,20 @@ html(lang='en')
 			ul
 				li.logo VISUAL#[em ICONS] #[span]
 				li.ver 1.0
-				li.social
-					ul.license
-						li #[a(href='', title='Licensed by Creative Commons 3.0') CC-3.0]
-					ul.github
-						li #[a(href='', title='Tweet this project') .Tweet]
-						li #[a(href='', title='Keep the project alive by donating') .Donate]
-						li #[a(href='', title='Star this project on GitHub for awareness') .Star]
 				li.dl
-					a(href='', title='Github → Download') #[svg(data-url='svg/browser/download.svg')]
+					a(href='', title='Github → Download') Download
 
 		section.project
-			h1.desc #[em Tasty SVG] Icons #[em for] #[br] Web Developers #[em &] UI
-			ul
-				li.features MIXED . CATEGORIZED . COMPRESSED
-				li.format
-					ul
-						li.svg SVG
-						li.ai AI
-						li.pdf PDF
+			h1.desc #[em UI] & #[em UX] icons - free, compressed and categorized.
 
 		section.preview
 			div
 				ul.details
-					li.total #{allTotal[14]} #[br] #[em ICONS]
-					li.name #{allDir[14]} #[br] pack
+					li.total #{allTotal[13]} #[br] #[em ICONS]
+					li.name #{allDir[13]} #[br] pack
 				ul.icons
 					-
-					each val in allSvg[14]
+					each val in allSvg[13]
 						li
 							span
 								svg(data-url='svg/'+val)

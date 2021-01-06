@@ -80,8 +80,8 @@ body {
       align-items: baseline;
       display: flex;
       font-family: var(--font-family-head);
-      font-size: x-large;
-      font-weight: 500;
+      font-size: xx-large;
+      font-weight: 600;
       color: gray(40);
       flex-direction: column;
 
@@ -113,29 +113,16 @@ body {
 
     .dl {
       a {
-        display: inline-block;
-        width: 20px;
+        display: flex;
         padding: 12px;
-        background-color: var(--color-dl);
-        border: 2px solid var(--color-dl);
-        border-radius: 2px;
+        color: var(--color-contrast-higher);
+        border: 2px solid gray(20);
+        border-radius: 4px;
         transition: 1s linear;
 
-        svg path {
-          fill: var(--color-dl-svg);
-          stroke: var(--color-dl-svg);
-          stroke-width: 1;
-          transition: 1s linear;
-        }
-
         &:hover {
-          background-color: var(--color-bg);
-
-          svg path {
-            fill: var(--color-dl);
-            stroke: var(--color-dl);
-            transition: 1s linear;
-          }
+          color: var(--color-bg);
+          background-color: var(--color-contrast-higher);
         }
       }
     }
@@ -188,26 +175,26 @@ body {
 
   .project {
     display: flex;
-    margin: 6vh 0 10vh;
+    margin: 4vh 0 10vh;
     flex-direction: column;
-    align-items: center;
+    //align-items: center;
 
     .desc {
-      font-size: 5.2rem;
+      font-size: 2.4rem;
 
       em {
-        color: gray(50);
+        color: rgb(103, 168, 243);
       }
     }
 
     > ul {
       display: flex;
-      margin-top: 5vh;
+      margin-top: 1vh;
       font-family: var(--font-family-head);
       flex-direction: column;
 
       .features {
-        font-size: larger;
+        font-size: large;
         font-weight: 700;
         color: gray(50);
       }
@@ -215,29 +202,39 @@ body {
       .format {
         ul {
           display: flex;
-          margin-top: 3vh;
+          //margin-top: 3vh;
           flex-direction: row;
-          justify-content: center;
+          //justify-content: center;
+
+          hr {
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            margin-right: 1px;
+            vertical-align: middle;
+            border: 0;
+            border-bottom: 1px solid;
+          }
 
           li {
             display: inline-block;
-            padding: 8px 14px 4px;
+            //padding: 8px 14px 4px;
             margin-right: 14px;
-            font-size: larger;
+            font-size: large;
             font-weight: 600;
             color: white;
           }
 
-          .svg {
-            background: hsl(154, 100%, 34%);
+          .svg hr {
+            border-bottom-color: hsl(154, 100%, 34%);
           }
 
-          .ai {
-            background: hsl(36, 95%, 54%);
+          .ai hr {
+            border-bottom-color: hsl(36, 95%, 54%);
           }
 
-          .pdf {
-            background: hsl(358, 79%, 47%);
+          .pdf hr {
+            border-bottom-color: hsl(358, 79%, 47%);
           }
         }
       }
@@ -250,8 +247,8 @@ body {
 
     div {
       display: flex;
-      width: 90vw;
-      padding: 0 10vw;
+      width: 100%;
+      padding: 2vw 0;
       flex-wrap: wrap;
     }
 
@@ -288,7 +285,7 @@ body {
 
     .icons {
       display: grid;
-      grid-template-columns: repeat(4, 126px);
+      grid-template-columns: repeat(4, 164px);
       gap: 2vw;
 
       li {
@@ -303,8 +300,8 @@ body {
 
         span {
           position: relative;
-          width: 120px;
-          height: 120px;
+          width: 60px;
+          height: 60px;
           place-items: center;
           background-color: gray(10);
           border-radius: 6px;
@@ -330,8 +327,8 @@ body {
 
         svg {
           display: inline-block;
-          width: 64px;
-          height: 64px;
+          width: 32px;
+          height: 32px;
 
           path,
           circle,

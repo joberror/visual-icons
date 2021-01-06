@@ -22,8 +22,8 @@ app.use(sassMiddleware({
 app.use(express.static(assets));
 
 // Listen on server
-app.listen(3000, () => {
-  console.log('Server listening on 3000');
+app.listen(4000, () => {
+  console.log('Server listening on 4000');
 });
 
 // Get file list of SVG
@@ -35,7 +35,7 @@ function fileList(dir) {
   }, []);
 }
 // Array of folders
-let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'fashion', 'files', 'geo', 'media', 'music', 'navigation', 'picture', 'player', 'social', 'tools', 'video'],
+let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'fashion', 'files', 'geo', 'media', 'navigation', 'picture', 'player', 'social', 'tools', 'video'],
   total = [],
   svgDir = [];
 
@@ -43,7 +43,7 @@ let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'f
 allFiles.forEach((a) => {
   total.push(fileList('./pack/' + a + '/ai/').length);
   svgDir.push(fileList('./src/assets/svg/' + a).map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
-});
+}); /*?.*/
 
 // List all file names in DIR >5
 
@@ -78,4 +78,4 @@ app.get('/', (req, res) => {
   });
 });
 
-//console.log(total[14]);
+//console.log(total[7]);
