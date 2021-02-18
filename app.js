@@ -35,15 +35,18 @@ function fileList(dir) {
   }, []);
 }
 // Array of folders
-let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'fashion', 'files', 'geo', 'media', 'navigation', 'picture', 'player', 'social', 'tools', 'video'],
+let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'fashion', 'geo', 'media', 'navigation', 'picture', 'social', 'tools', 'video'],
   total = [],
-  svgDir = [];
+  svgDir = [],
+  sampleSVG = [];
 
 // Get total files
 allFiles.forEach((a) => {
   total.push(fileList('./pack/' + a + '/ai/').length);
-  svgDir.push(fileList('./src/assets/svg/' + a).map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
+  svgDir.push(fileList('./pack/' + a + '/svg/').map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
 }); /*?.*/
+
+sampleSVG.push(fileList('./src/assets/svg').map((file) =>  file.split(path.sep).slice(-1)[0]));
 
 // List all file names in DIR >5
 
@@ -74,8 +77,9 @@ app.get('/', (req, res) => {
     // Pass SVG array to Pug for processing
     allSvg: svgDir,
     allTotal: total,
-    allDir: allFiles
+    allDir: allFiles,
+    svgSample: sampleSVG
   });
 });
 
-//console.log(total[7]);
+console.log(sampleSVG);

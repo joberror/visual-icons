@@ -1,0 +1,15 @@
+{
+    "name": "Visual Icons",
+    "short_name": "Vis-icon",
+    "icons": [{
+        "src": "/google-touch-icon.png",
+        "sizes": "512x512"
+    }],
+    "orientation": "any",
+    "start_url": "/",
+    "description": "Visual and simple icons for developers",
+    "lang": "en",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "fullscreen"
+}

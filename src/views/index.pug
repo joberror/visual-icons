@@ -21,23 +21,34 @@ html(lang='en')
 				li.logo VISUAL#[em ICONS] #[span]
 				li.ver 1.0
 				li.dl
-					a(href='', title='Github → Download') Download
+					a(href='', title='Github → Download').btn-link Download
 
-		section.project
-			h1.desc #[em UI] & #[em UX] icons - free, compressed and categorized.
+		section.desc
+			h1 Simply curated and free visual icons for #[em UI] & #[em UX]
 
 		section.preview
 			div
-				ul.details
-					li.total #{allTotal[13]} #[br] #[em ICONS]
-					li.name #{allDir[13]} #[br] pack
 				ul.icons
 					-
-					each val in allSvg[13]
+					each val in svgSample[0]
 						li
 							span
-								svg(data-url='svg/'+val)
+								svg(data-url='./svg/'+val)
 							em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
+				p
+					a(href='', title='View all icons').view-link View all
+					span /
+					a(href='', title='Features, todo and updates').info-link features
+
+		ul.footer
+			li.social
+				ul.license
+					li #[a(href='', title='Licensed by Creative Commons 3.0') CC-3.0]
+				ul.github
+					li #[a(href='', title='Tweet this project') .tweet]
+					li #[a(href='', title='Keep the project alive by donating') .donate]
+					li #[a(href='', title='Star this project on GitHub for awareness') .github]
+			li.dev made with #[span #[svg(data-url='./love.svg')]] by #[a(href='', title='Developer website') joberror]
 
 		script(type='module').
 			import { svgLoader as svg } from './scripts/main.min.js';

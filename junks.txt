@@ -10,3 +10,139 @@
 					a(href='', title='Github → Download') #[svg(data-url='svg/browser/download.svg')]
 
           li.features MIXED . CATEGORIZED . COMPRESSED
+
+					div
+				ul.details
+					li.total #{allTotal[13]} #[br] #[em ICONS]
+					li.name #{allDir[11]} #[br] pack
+				ul.icons
+					-
+					each val in svgSample[0]
+						li
+							span
+								svg(data-url='./svg/'+val)
+							em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
+
+    > ul {
+      display: flex;
+      margin-top: 1vh;
+      font-family: var(--font-family-head);
+      flex-direction: column;
+
+      .features {
+        font-size: large;
+        font-weight: 700;
+        color: gray(50);
+      }
+
+      .format {
+        ul {
+          display: flex;
+          //margin-top: 3vh;
+          flex-direction: row;
+          //justify-content: center;
+
+          hr {
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            margin-right: 1px;
+            vertical-align: middle;
+            border: 0;
+            border-bottom: 1px solid;
+          }
+
+          li {
+            display: inline-block;
+            //padding: 8px 14px 4px;
+            margin-right: 14px;
+            font-size: large;
+            font-weight: 600;
+            color: white;
+          }
+
+          .svg hr {
+            border-bottom-color: hsl(154, 100%, 34%);
+          }
+
+          .ai hr {
+            border-bottom-color: hsl(36, 95%, 54%);
+          }
+
+          .pdf hr {
+            border-bottom-color: hsl(358, 79%, 47%);
+          }
+        }
+      }
+    }
+    .social {
+      display: flex;
+      margin-right: calc(50% - 250px);
+
+      ul { margin-right: 20px; }
+
+      a {
+        font-size: large;
+        transition: 500ms linear;
+
+        &:hover {
+          transition: 500ms linear;
+        }
+      }
+
+      .license {
+        a {
+          display: inline-block;
+          padding: 6px 8px 3px;
+          font-weight: 500;
+          color: var(--color-bg);
+          background-color: var(--color-contrast-higher);
+
+          &:hover {
+            color: var(--color-contrast-higher);
+            background-color: var(--color-bg);
+          }
+        }
+      }
+
+      .github {
+        li {
+          margin-left: 10px;
+        }
+
+        a {
+          color: var(--color-contrast-higher);
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .total {
+        font-family: var(--font-family-head);
+        font-size: 12.4rem;
+
+        em {
+          display: block;
+          font-size: 4.8rem;
+          color: var(--color-contrast-high);
+        }
+      }
+
+      .name {
+        padding-top: 10px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: gray(40);
+        text-transform: capitalize;
+        border-top: 1px solid gray(10);
+
+      }
+    }
