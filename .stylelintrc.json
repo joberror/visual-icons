@@ -11,7 +11,9 @@
 		"images/prefer-data-uri": 256,
 		"color-named": "always-where-possible",
 		"scss/at-function-named-arguments": "never",
+		"selector-max-specificity": "0,5,0",
 		"selector-max-type": 5,
+		"at-rule-disallowed-list": ["extends", "import"],
 		"selector-max-compound-selectors": 6,
 		"max-nesting-depth": 6
   }

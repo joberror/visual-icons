@@ -3,7 +3,8 @@ const express = require('express'),
   app = express(),
   fs = require('fs'),
   sassMiddleware = require('node-sass-middleware'),
-  assets = path.join(__dirname, "src/assets/");
+  assets = path.join(__dirname, "src/assets/"),
+  router = express.Router();
 
 // Set template engine
 app.set('view engine', 'pug');
@@ -71,15 +72,30 @@ sampleSVG.push(fileList('./src/assets/svg').map((file) =>  file.split(path.sep).
 //   });
 // });
 
-// Register index page
-app.get('/', (req, res) => {
-  res.render('index', {
+
+// Register Index
+router.get('/', (req, res) => {
+  res.render('', {
     // Pass SVG array to Pug for processing
-    allSvg: svgDir,
-    allTotal: total,
-    allDir: allFiles,
     svgSample: sampleSVG
   });
 });
+
+// Register viewer
+router.get('/viewer', (req, res) => {
+  res.render('viewer', {
+    // Pass SVG array to Pug for processing
+    catSvg: svgDir,
+    catTotal: total,
+    catName: allFiles
+  });
+});
+
+// Register feature
+router.get('/features', (req, res) => {
+  res.render('features', {});
+});
+
+app.use('/', router);
 
 console.log(sampleSVG);

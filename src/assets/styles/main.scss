@@ -54,17 +54,7 @@ $mq-breakpoints: (
 }
 // Button
 .btn-link {
-  display: flex;
-  padding: 12px;
-  color: var(--color-contrast-higher);
-  border: 2px solid gray(20);
-  border-radius: 4px;
-  transition: 1s linear;
-
-  &:hover {
-    color: var(--color-bg);
-    background-color: var(--color-contrast-higher);
-  }
+  @extend %btn-mixin;
 }
 // Scrollbar
 @include scrollbar(var(--color-bg), gray(10), 0, 1px);
@@ -123,113 +113,6 @@ body {
       background-color: var(--color-dl);
       border-radius: 2px;
       align-self: flex-start;
-    }
-  }
-
-  .desc {
-    display: flex;
-    margin: 4vh 0;
-    flex-direction: column;
-    align-items: center;
-
-    h1 {
-      font-size: 2.4rem;
-
-      em {
-        color: rgb(103, 168, 243);
-      }
-    }
-  }
-
-  .preview {
-    display: flex;
-
-    div {
-      display: flex;
-      width: 100%;
-      padding: 2vw 0;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-content: center;
-    }
-
-    p {
-      margin: 6vh 0;
-      text-align: center;
-
-      a.view-link {
-        @extend .btn-link;
-        display: inline-block;
-        color: white;
-        background-color: rgb(26, 112, 212);
-        border: 0;
-      }
-
-      span {
-        margin: 0 20px;
-      }
-
-      a.info-link {
-        color: rgb(26, 112, 212);
-        transition: 500ms linear;
-
-        &:hover {
-          opacity: 0.5;
-          transition: 500ms linear;
-        }
-      }
-    }
-
-    ul {
-      width: 50%;
-    }
-
-    .icons {
-      display: grid;
-      grid-template-columns: repeat(4, 164px);
-      gap: 2vw;
-
-      li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        span,
-        em {
-          display: grid;
-        }
-
-        span {
-          position: relative;
-          width: 120px;
-          height: 120px;
-          place-items: center;
-          // background-color: gray(10);
-          border-radius: 6px;
-        }
-
-        em {
-          padding-top: 24px;
-          color: var(--color-contrast-high);
-          text-transform: capitalize;
-        }
-
-        svg {
-          display: inline-block;
-          width: 64px;
-          height: 64px;
-
-          path,
-          circle,
-          ellipse,
-          line,
-          rect {
-            fill: none;
-            stroke: var(--color-contrast-higher);
-            stroke-width: 0.5;
-          }
-        }
-      }
     }
   }
 

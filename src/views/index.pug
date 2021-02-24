@@ -1,56 +1,23 @@
-doctype html
-html(lang='en')
-	include svg.pug
+extends layout.pug
 
-	meta(charset="UTF-8")
-	-
-	each key in meta
-		each content, handle in key
-			meta(name= handle, content= content)
+block content
+	section.desc
+		h1 Simply curated and free visual icons for #[em UI] & #[em UX]
 
-	title Visual Icons
-	base(href='/')
-	-
-	each key in link
-		each content, handle in key
-			link(rel= handle, href= content)
+	section.preview
+		div
+			ul.icons
+				-
+				each svg in svgSample[0]
+					li
+						span
+							svg(data-url='./svg/'+svg)
+						em #{svg.split('\\').pop().split('/').pop().slice(0, -4)}
+			p
+				a(href='/viewer', title='View all icons').view-link View all
+				span /
+				a(href='/features', title='Features, todo and updates').info-link features
 
-	body(data-theme='default')
-		nav
-			ul
-				li.logo VISUAL#[em ICONS] #[span]
-				li.ver 1.0
-				li.dl
-					a(href='', title='Github → Download').btn-link Download
-
-		section.desc
-			h1 Simply curated and free visual icons for #[em UI] & #[em UX]
-
-		section.preview
-			div
-				ul.icons
-					-
-					each val in svgSample[0]
-						li
-							span
-								svg(data-url='./svg/'+val)
-							em #{val.split('\\').pop().split('/').pop().slice(0, -4)}
-				p
-					a(href='', title='View all icons').view-link View all
-					span /
-					a(href='', title='Features, todo and updates').info-link features
-
-		ul.footer
-			li.social
-				ul.license
-					li #[a(href='', title='Licensed by Creative Commons 3.0') CC-3.0]
-				ul.github
-					li #[a(href='', title='Tweet this project') .tweet]
-					li #[a(href='', title='Keep the project alive by donating') .donate]
-					li #[a(href='', title='Star this project on GitHub for awareness') .github]
-			li.dev made with #[span #[svg(data-url='./love.svg')]] by #[a(href='', title='Developer website') joberror]
-
-		script(type='module').
-			import { svgLoader as svg } from './scripts/main.min.js';
-			// initiate svg module
-			svg.init();
+block variables
+	- var title = "Visual Icons"
+	- var css_file_name = "home.css"
