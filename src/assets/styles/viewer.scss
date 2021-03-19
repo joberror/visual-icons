@@ -1,0 +1,288 @@
+@import "mixins";
+$c:  #4f873d #346f91 #d08321;
+
+$track-w: 10.875em;
+$track-h: 0.2em;
+$track-bg:
+  linear-gradient(#46793f, #4f873d)
+  linear-gradient(#366687, #346f91)
+  linear-gradient(#916338, #d08321);
+
+$thumb-w: 0.625em;
+$thumb-h: 1.2em;
+$thumb-bc: #1d1d1d;
+
+$h-diff: ($thumb-h - $track-h)/2;
+
+@mixin track() {
+  width: $track-w;
+  height: $track-h;
+  box-sizing: border-box;
+//  border: solid 1px #291f23;
+  border-radius: $track-h/2;
+}
+
+@mixin thumb() {
+  width: $thumb-w;
+  height: $thumb-h;
+  box-sizing: border-box;
+  background: #e2dcce;
+  //border: solid 1px #1d1d1d;
+  border-radius: 0;
+}
+
+[data-theme="default"] {
+  --color-bg-tools: rgba(17, 86, 119, 13%);
+}
+
+[data-theme="light"] {
+  --color-bg-tools: rgba(17, 86, 119, 13%);
+}
+
+.tools {
+  padding: 24px 20px;
+  background: var(--color-bg-tools);
+  border-bottom: 1px solid hsla(163, 43%, 50%, 0.361);
+  border-radius: 10px;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    li {
+      display: flex;
+      width: 30%;
+      flex-direction: column;
+    }
+
+    label {
+      padding-bottom: 20px;
+      color: gray(60);
+      text-transform: uppercase;
+      letter-spacing: 0.4rem;
+    }
+
+    hr {
+      display: inline-block;
+      width: 100%;
+      height: 4px;
+      margin-right: 20px;
+      vertical-align: middle;
+      cursor: crosshair;
+      border: 0;
+      border-bottom: 2px solid var(--color-contrast-higher);
+    }
+
+    .value {
+      display: inline-block;
+      padding: 10px 12px;
+      background-color: hsla(113, 32%, 36%, 0.059);
+      border-bottom: 1px solid hsl(113, 32%, 36%);
+      border-radius: 4px;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+
+    fieldset {
+      width: 100%;
+      padding: 0;
+      border: 0;
+
+      select {
+        display: inline-block;
+        width: 85%;
+        box-sizing: border-box;
+        padding: 10px 4px;
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-spacing: 0.2rem;
+        color: var(--color-contrast-higher);
+        cursor: pointer;
+        background-color: transparent;
+        background-image:
+          linear-gradient(45deg, transparent 50%, gray(30) 50%),
+          linear-gradient(135deg, gray(30) 50%, transparent 50%),
+          linear-gradient(to right, gray(25), gray(25));
+        background-position:
+          calc(100% - 20px) calc(1em + 2px),
+          calc(100% - 15px) calc(1em + 2px),
+          calc(100% - 2.5em) 0.5em;
+        border: 0;
+      //  border-radius: 4px;
+        appearance: none;
+
+        &,
+        &:focus {
+          background-repeat: no-repeat;
+          background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        }
+
+        &:focus {
+          background-image:
+            linear-gradient(45deg, gray(30) 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, gray(30) 50%),
+            linear-gradient(to right, gray(25), gray(25));
+          background-position:
+            calc(100% - 15px) 1em,
+            calc(100% - 20px) 1em,
+            calc(100% - 2.5em) 0.5em;
+          border-color: gray(15);
+          outline: 0;
+        }
+
+        option {
+          font-size: 1.4rem;
+          background-color: var(--color-sel-opt);
+        }
+      }
+
+      output {
+        position: relative;
+        margin-left: 10px;
+
+        &::before {
+          position: absolute;
+          top: 10px;
+          left: -7px;
+          width: 0;
+          height: 0;
+          content: '';
+          border-top: 7px solid transparent;
+          border-right: 7px solid gray(15);
+          border-bottom: 7px solid transparent;
+        }
+      }
+
+      input[type='range'] {
+        &,
+        &::-webkit-slider-runnable-track,
+        &::-webkit-slider-thumb {
+          appearance: none;
+        }
+
+        width: 83%;
+        padding: 0;
+        margin-left: -10px;
+        font-size: 1em;
+        cursor: grabbing;
+        background: none;
+        border: solid 0 transparent;
+        border-width: 0.25em $h-diff;
+        border-radius: 0.25em;
+
+        &::-webkit-slider-runnable-track {
+          @include track();
+        }
+
+        &::-moz-range-track {
+          @include track();
+        }
+
+        &::-ms-track {
+          @include track();
+          color: transparent;
+        }
+
+        &::-webkit-slider-thumb {
+          margin-top: -$h-diff;
+          @include thumb();
+        }
+
+        &::-moz-range-thumb {
+          @include thumb();
+        }
+
+        &::-ms-thumb {
+          @include thumb();
+        }
+
+        &::-ms-fill-lower,
+        &::-ms-tooltip {
+          display: none;
+        }
+
+        @for $i from 1 through 3 {
+          &:nth-of-type(#{$i}) {
+            $bg: nth($track-bg, $i);
+
+            color: nth($c, $i);
+
+            &::-webkit-slider-runnable-track {
+              background: $bg;
+            }
+
+            &::-moz-range-track {
+              background: $bg;
+            }
+
+            &::-ms-track {
+              background: $bg;
+            }
+          }
+      }
+      }
+    }
+  }
+}
+
+.view {
+  display: flex;
+  margin-top: 8vh;
+  font-family: var(--font-family-head);
+  flex-direction: column;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 2vw;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span,
+      em {
+        display: grid;
+      }
+
+      span {
+        position: relative;
+      //  width: 120px;
+      //  height: 120px;
+        place-items: center;
+        //background-color: gray(10);
+        //border-radius: 6px;
+      }
+
+      em {
+        padding-top: 24px;
+        color: var(--color-contrast-high);
+        text-transform: capitalize;
+      }
+
+      svg {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+
+        path,
+        circle,
+        ellipse,
+        line,
+        rect {
+          fill: none;
+          stroke: var(--color-contrast-higher);
+          stroke-width: 0.8;
+        }
+      }
+    }
+  }
+}

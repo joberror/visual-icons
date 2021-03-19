@@ -13,7 +13,7 @@
 		"scss/at-function-named-arguments": "never",
 		"selector-max-specificity": "0,5,0",
 		"selector-max-type": 5,
-		"at-rule-disallowed-list": ["extends", "import"],
+		"at-rule-allowed-list": ["extend", "include", "import", "function", "mixin", "return", "for"],
 		"selector-max-compound-selectors": 6,
 		"max-nesting-depth": 6
   }

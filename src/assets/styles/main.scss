@@ -33,6 +33,11 @@ $mq-breakpoints: (
   // download
   --color-dl: hsl(153, 68%, 42%);
   --color-dl-svg: white;
+  // forms
+  --color-sel-opt: var(--color-bg);
+
+  // invert
+  --i-color-contrast-higher: black;
 
   // Defaults
   position: relative;
@@ -51,24 +56,33 @@ $mq-breakpoints: (
   --color-contrast-higher: black;
   --color-pink-contrast: hsl(352, 93%, 63%);
   --color-svg-fill: #{gray(10)};
+
+  // forms
+  --color-sel-opt: var(--color-bg);
+
+  // invert
+  --i-color-contrast-higher: white;
 }
 // Button
 .btn-link {
   @extend %btn-mixin;
 }
 // Scrollbar
-@include scrollbar(var(--color-bg), gray(10), 0, 1px);
+@include scrollbar(var(--color-bg), #{gray(10)}, 0, 1px);
 
 // Theme
 body {
-  margin: 2vh 4vw;
+  display: flex;
+  margin: 0 4vw;
   font-family: var(--font-family);
   font-size: var(--font-size);
   line-height: var(--line-height);
+  flex-direction: column;
   text-rendering: optimizeLegibility;
 
   nav {
     display: flex;
+    margin-top: 2vh;
     flex-direction: row;
     align-items: center;
 
@@ -116,9 +130,16 @@ body {
     }
   }
 
+  .content {
+    margin-top: 4vh;
+    flex: 1 0 auto;
+  }
+
   .footer {
     display: flex;
+    margin-bottom: 2vh;
     vertical-align: middle;
+    flex-shrink: 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

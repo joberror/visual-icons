@@ -1,11 +1,36 @@
 extends layout.pug
 
 prepend content
-	section.all
-		ul.cat-name
+	.tools
+		ul
+			li.svg-cat
+				label(for="cat") select icon category
+				fieldset
+					select(name="category", id="cat-panel")
+						-
+						each cat in catName
+							option(value=cat) #{cat.toUpperCase()}
+					span.value 45
+			li.stroke-weight
+				label(for="stroke") set icon weight
+				fieldset
+					input(type="range", min="0.5", max="1.1", id="str_width", step="0.1", value="0.8")
+					output(id="str_width").value 0.8
+			li.color-panel
+				label(for="color") pick icon color
+				fieldset
+					hr
+
+	.view
+		ul
 			-
-			each cat in catName
-				li #{cat.toUpperCase()}
+			each svgA in svgSample[0]
+				li
+					span
+						svg(data-url='./svg-sample/'+svgA)
+					em #{svgA.split('\\').pop().split('/').pop().slice(0, -4)}
+
 
 block variables
 	- var title = "Visual Icons: viewer"
+	- var css_file_name = "viewer.css"

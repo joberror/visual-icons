@@ -16,7 +16,8 @@ html(lang='en')
 		each content, handle in key
 			link(rel= handle, href= content)
 
-	link(rel='stylesheet', href='/styles/' + css_file_name)
+	if css_file_name
+		link(rel='stylesheet', href='/styles/' + css_file_name)
 
 	body(data-theme='default')
 		nav
@@ -26,7 +27,8 @@ html(lang='en')
 				li.dl
 					a(href='', title='Github → Download').btn-link Download
 
-		block content
+		section.content
+			block content
 
 		ul.footer
 			li.social

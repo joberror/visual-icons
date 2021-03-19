@@ -47,7 +47,7 @@ allFiles.forEach((a) => {
   svgDir.push(fileList('./pack/' + a + '/svg/').map((file) => a + '/' + file.split(path.sep).slice(-1)[0]));
 }); /*?.*/
 
-sampleSVG.push(fileList('./src/assets/svg').map((file) =>  file.split(path.sep).slice(-1)[0]));
+sampleSVG.push(fileList('./src/assets/svg-sample').map((file) =>  file.split(path.sep).slice(-1)[0]));
 
 // List all file names in DIR >5
 
@@ -87,7 +87,8 @@ router.get('/viewer', (req, res) => {
     // Pass SVG array to Pug for processing
     catSvg: svgDir,
     catTotal: total,
-    catName: allFiles
+    catName: allFiles,
+    svgSample: sampleSVG
   });
 });
 
@@ -97,5 +98,3 @@ router.get('/features', (req, res) => {
 });
 
 app.use('/', router);
-
-console.log(sampleSVG);
