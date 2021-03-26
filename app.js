@@ -36,7 +36,7 @@ function fileList(dir) {
   }, []);
 }
 // Array of folders
-let allFiles = ['apps', 'brands', 'browser', 'business', 'devices', 'editor', 'fashion', 'geo', 'media', 'navigation', 'picture', 'social', 'tools', 'video'],
+let allFiles = ['apps', 'brands', 'browser', 'finance', 'devices', 'editor', 'fashion', 'geo', 'media', 'navigation', 'picture', 'social', 'tools', 'video'],
   total = [],
   svgDir = [],
   sampleSVG = [];
