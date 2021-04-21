@@ -35,6 +35,8 @@ $mq-breakpoints: (
   --color-dl-svg: white;
   // forms
   --color-sel-opt: var(--color-bg);
+  // button
+  --color-theme-def: hsl(212, 78%, 47%);
 
   // invert
   --i-color-contrast-higher: black;
@@ -207,7 +209,7 @@ body {
       }
 
       a {
-        color: rgb(26, 112, 212);
+        color: var(--color-theme-def);
       }
     }
   }

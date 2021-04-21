@@ -7,6 +7,7 @@ const
   fs = require('fs'),
   sassMiddleware = require('node-sass-middleware'),
   assets = path.join(__dirname, "src/assets/"),
+  views = path.join(__dirname, "src/views"),
   router = express.Router();
 
 // --------- Configs and defaults -----------------------------------------------------
@@ -14,7 +15,7 @@ const
 // Set template engine
 app.set('view engine', 'pug');
 // Set directory of templates
-app.set("views", path.join(__dirname, "src/views"));
+app.set("views", views);
 // Sass Middleware
 app.use(sassMiddleware({
   /* Options */
@@ -72,7 +73,7 @@ svg_all.forEach((arr) => {
 
 // --------------- Debugging and test ------------------------------------------------
 
-console.log(total_per_cat);
+console.log(svg_all);
 
 // --------------- Page, routing and navigation --------------------------------------
 
@@ -90,8 +91,7 @@ router.get('/viewer', (req, res) => {
     // Pass SVG array to Pug for processing
     catSvg: svg_all,
     catTotal: total_per_cat,
-    catName: svg_cat,
-    svgSample: svg_ex
+    catName: svg_cat
   });
 });
 

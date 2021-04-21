@@ -35,7 +35,7 @@
       @extend %btn-mixin;
       display: inline-block;
       color: white;
-      background-color: rgb(26, 112, 212);
+      background-color: var(--color-theme-def);
       border: 0;
     }
 
@@ -44,7 +44,7 @@
     }
 
     .info-link {
-      color: rgb(26, 112, 212);
+      color: var(--color-theme-def);
       transition: 500ms linear;
 
       &:hover {
