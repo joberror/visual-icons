@@ -1,53 +1,46 @@
 extends layout.pug
 
 prepend content
-	.home-panel
-		header
-			h2 EXPLORER
-			p click on each category to view.
-		div
-			ul.svg-cat
-				-
-				each cat, index in catName
-					li
-						a(href="#cat-" + cat, title= cat + " category")
-							svg(data-url="./svg-ui/" + cat + ".svg" )
-							ul
-								li.cat-name= cat
-								li.cat-no= + catTotal[index]
+	.panel-header
+		h4 EXPLORER
+		hr
+		.color-config color:
+			span
+				em(data-jscolor="{valueElement: '#colorVal'}")
+				input(id='colorVal')
+		hr
+		.stroke-config
+			label(for="str-width") weight:
+			input(type="range", min="0.8", max="1.4", id="str_width", step="0.1", value="1")
+			output 1.0
 
-	.panel-section
-		.panel-header
-			h4 EXPLORER
-			hr
-			.color-config color-picker: #[span #[em]]
-			hr
-			.stroke-config
-				label(for="str-width") stroke-weight:
-				input(type="range", min="0.5", max="1.1", id="str_width", step="0.1", value="0.8")
-				output 0.8
+	.viewer(id="viewer")
+		-
+		each name, index in catName
+			div(id="cat-" + name)
+				ul.svg-info
+					li.cat-name
+						span ICON PACK:
+						em= name
+					li.cat-no
+						span NO OF ICONS:
+						em= catTotal[index]
 
-		.panel
-			.navigator
-				h4 #[span ˅] CATEGORIES
-				ul
-					-
-					each name in catName
+				ul.svgs
+					each svg in catSvg[index]
 						li
-							a(title=name, href='/viewer#cat-' + name) #{name}
-				p #[span 26] ICONS
-
-			.viewer
-				-
-				each name, index in catName
-					div(id="cat-" + name)
-						ul
-							each svg in catSvg[index]
-								li
-									span #[svg(data-url="/svgs/" + svg)]
-									em= svg.split('\\').pop().split('/').pop().slice(0, -4)
+							span #[svg(data-url="/svgs/" + svg)]
+							em= svg.split('\\').pop().split('/').pop().slice(0, -4)
 
 
 block variables
 	- var title = "Visual Icons: viewer"
 	- var css_file_name = "viewer.css"
+
+block importScripts
+	script(src='./scripts/jscolor.min.js')
+
+block scripts
+	script(src='./scripts/viewer.js')
+
+

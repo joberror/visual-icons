@@ -49,108 +49,21 @@ $h-diff: ($thumb-h - $track-h)/2;
     polygon {
       fill: none;
       stroke: var(--color-contrast-higher);
-      stroke-width: 0.8;
+      stroke-width: 1;
       stroke-linecap: round;
       stroke-miterlimit: 10;
-    }
-  }
-
-  .home-panel {
-    display: none;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-      font-weight: bold;
-      letter-spacing: 0.4rem;
-    }
-
-    p {
-      margin-top: 10px;
-      font-size: 1.8rem;
-      color: gray(50);
-    }
-  }
-
-  .svg-cat {
-    display: grid;
-    margin-top: 8vh;
-    justify-content: center;
-    grid-template-columns: repeat(5, 164px);
-    gap: 3vw;
-
-    .cat-name {
-      text-transform: uppercase;
-
-      &::after {
-        position: absolute;
-        bottom: -4px;
-        display: block;
-        width: 0;
-        height: 1px;
-        content: "";
-        background-color: var(--color-contrast-higher);
-        transition: 0.5s linear;
-      }
-    }
-
-    cat-no {
-      font-family: var(--font-family-head);
-    }
-
-    a {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      padding: 10px 10px 0;
-      color: gray(24);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: var(--color-svg-hover);
       transition: 0.5s linear;
-
-      &:hover {
-        color: var(--color-contrast-higher);
-        background: var(--color-theme-def);
-        border-radius: 8px;
-        transition: 0.5s linear;
-
-        .cat-name::after {
-          width: 100%;
-          transform: 0.5s linear;
-        }
-      }
     }
-
-    svg {
-      width: 102px;
-      margin: 14px 0;
-    }
-
-    ul {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      padding: 10px 0;
-
-      li {
-        position: relative;
-      }
-    }
-  }
-
-  .panel-section {
-    // display: none;
   }
 
   .panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: flex;
+    padding: 2vh 0 6vh;
     flex-direction: row;
+    background-color: var(--color-bg);
     align-items: center;
 
     hr {
@@ -170,7 +83,8 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     label,
     .color-config {
-      color: gray(30);
+      font-weight: 500;
+      color: hsl(0, 0%, 54%);
       text-transform: uppercase;
       letter-spacing: 0.4rem;
     }
@@ -178,7 +92,7 @@ $h-diff: ($thumb-h - $track-h)/2;
     .color-config {
       span {
         display: inline-flex;
-        width: 24px;
+        width: 38px;
         height: 8px;
         padding: 4px;
         border: 1px solid gray(30);
@@ -190,6 +104,10 @@ $h-diff: ($thumb-h - $track-h)/2;
           height: 100%;
           cursor: crosshair;
           background-color: var(--color-contrast-higher);
+        }
+
+        input {
+          display: none;
         }
       }
     }
@@ -204,7 +122,7 @@ $h-diff: ($thumb-h - $track-h)/2;
 
       output {
         display: inline-block;
-        padding: 0 6px;
+        padding: 2px 6px;
         margin-left: 10px;
         font-size: 1.4rem;
         //font-weight: bold;
@@ -219,7 +137,7 @@ $h-diff: ($thumb-h - $track-h)/2;
           appearance: none;
         }
 
-        width: 30vw;
+        width: 24vw;
         padding: 0;
         margin-left: -10px;
         font-size: 1em;
@@ -267,107 +185,71 @@ $h-diff: ($thumb-h - $track-h)/2;
     }
   }
 
-  .panel {
+  .viewer {
     display: flex;
-    margin-top: 4vh;
-    flex-direction: row;
+    margin-top: 2vh;
+    flex-direction: column;
 
-    .navigator {
-      h4 {
+    > div {
+      display: flex;
+      margin-bottom: 6vh;
+      flex-direction: row;
+      border-bottom: 1px solid gray(20);
+    }
+
+    .svg-info {
+      width: 12vw;
+
+      span,
+      em {
+        display: block;
+        margin: 0 0 10px;
+        font-weight: 500;
+      }
+
+      span {
+        font-size: 1.4rem;
+        color: gray(50);
+      }
+
+      em {
+        font-family: var(--font-family-head);
+        font-size: 2.4rem;
         text-transform: uppercase;
-        letter-spacing: 0.4rem;
-
-        span {
-          display: inline-block;
-          font-size: 1.8rem;
-          vertical-align: top;
-        }
-      }
-
-      ul {
-        padding-top: 14px;
-        margin-top: -2px;
-        margin-left: 4px;
-        border-left: 1px solid var(--color-contrast-higher);
-
-        li {
-          position: relative;
-          left: -2px;
-
-          a {
-            display: inline-flex;
-            padding: 8px 0 8px 24px;
-            color: gray(50);
-            transition: color 0.5s;
-
-            &:hover,
-            &.active {
-              color: var(--color-contrast-higher);
-              border-left: 3px solid var(--color-link);
-              transition: color 0.5s;
-            }
-
-            &.active {
-              border-left-color: hsl(202, 42%, 59%);
-              transition: color 0.5s;
-            }
-          }
-        }
-      }
-
-      p {
-        margin-top: 4vh;
-
-        span {
-          font-size: 4.8rem;
-        }
+        letter-spacing: 0.1rem;
       }
     }
 
-    .viewer {
-      display: flex;
-      margin-top: 4vh;
+    .svgs {
+      display: grid;
+      width: 75vw;
+      margin-bottom: 48px;
+      margin-left: auto;
       flex-direction: column;
-      flex-grow: 1;
+      grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+      gap: 4vw;
 
-      div {
-        display: none;
-        margin-bottom: 4vh;
-        flex-direction: column;
-        align-items: center;
-
-        ul {
-          display: grid;
-          width: 80%;
-          margin-bottom: 48px;
-          grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-          gap: 4vw;
-        }
-
-        li {
-          text-align: center;
-        }
-
-        span {
-          display: flex;
-          width: 36px;
-          height: 36px;
-          margin: 0 auto 40px;
-        }
-
-        svg {
-          width: 100%;
-          height: 100%;
-        }
-
-        em {
-          font-size: 1.2rem;
-          color: hsl(0, 0%, 14%);
-        }
+      li {
+        text-align: center;
       }
 
-      #cat-browser {
+      span {
         display: flex;
+        width: 36px;
+        height: 36px;
+        margin: 0 auto 40px;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      em {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: hsl(255, 7%, 11%);
+        text-transform: capitalize;
       }
     }
   }

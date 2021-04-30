@@ -1,295 +1,160 @@
-.tools
-		ul
-			li.svg-cat
-				label(for="cat") select icon category
-				fieldset
-					select(name="category", id="cat-panel")
-						-
-						each cat in catName
-							option(value=cat) #{cat.toUpperCase()}
-					span.value 45
-			li.stroke-weight
-				label(for="stroke") set icon weight
-				fieldset
-					input(type="range", min="0.5", max="1.1", id="str_width", step="0.1", value="0.8")
-					output(id="str_width").value 0.8
-			li.color-panel
-				label(for="color") pick icon color
-				fieldset
-					hr
+	.home-panel
+		header
+			h2 EXPLORER
+			p click on each category to view.
+		div
+			ul.svg-cat
+				-
+				each cat, index in catName
+					li
+						a(href="#cat-" + cat, title= cat + " category")
+							svg(data-url="./svg-ui/" + cat + ".svg" )
+							ul
+								li.cat-name= cat
+								li.cat-no= + catTotal[index]
 
-	.view
-		ul
-			-
-			each svgA in svgSample[0]
-				li
-					span
-						svg(data-url='./svg-sample/'+svgA)
-					em #{svgA.split('\\').pop().split('/').pop().slice(0, -4)}
 
-.tools {
-  padding: 24px 20px;
-  background: var(--color-bg-tools);
-  border-bottom: 1px solid hsla(163, 43%, 50%, 0.361);
-  border-radius: 10px;
+  .home-panel {
+    display: none;
+  }
 
-  ul {
+  header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 
-    li {
-      display: flex;
-      width: 30%;
-      flex-direction: column;
+    h2 {
+      font-weight: bold;
+      letter-spacing: 0.4rem;
     }
 
-    label {
-      padding-bottom: 20px;
-
-          span {
-            display: inline-block;
-            width: 16px;
-            margin-right: 10px;
-          }
-
-          svg {
-            width: 100%;
-          }
-
-          path,
-          circle,
-          line,
-          rect {
-            fill: none;
-            stroke: var(--color-contrast-higher);
-            stroke-width: 1.5pt;
-            stroke-miterlimit: 10;
-            stroke-linecap: round;
-          }
-    }
-
-    hr {
-      display: inline-block;
-      width: 100%;
-      height: 4px;
-      margin-right: 20px;
-      vertical-align: middle;
-      cursor: crosshair;
-      border: 0;
-      border-bottom: 2px solid var(--color-contrast-higher);
-    }
-
-    .value {
-      display: inline-block;
-      padding: 10px 12px;
-      background-color: hsla(113, 32%, 36%, 0.059);
-      border-bottom: 1px solid hsl(113, 32%, 36%);
-      border-radius: 4px;
-    }
-
-    span {
-      margin-left: 10px;
-    }
-
-    fieldset {
-      width: 100%;
-      padding: 0;
-      border: 0;
-
-      select {
-        display: inline-block;
-        width: 85%;
-        box-sizing: border-box;
-        padding: 10px 4px;
-        margin: 0;
-        font-size: 1.8rem;
-        font-weight: bold;
-        line-spacing: 0.2rem;
-        color: var(--color-contrast-higher);
-        cursor: pointer;
-        background-color: transparent;
-        background-image:
-          linear-gradient(45deg, transparent 50%, gray(30) 50%),
-          linear-gradient(135deg, gray(30) 50%, transparent 50%),
-          linear-gradient(to right, gray(25), gray(25));
-        background-position:
-          calc(100% - 20px) calc(1em + 2px),
-          calc(100% - 15px) calc(1em + 2px),
-          calc(100% - 2.5em) 0.5em;
-        border: 0;
-      //  border-radius: 4px;
-        appearance: none;
-
-        &,
-        &:focus {
-          background-repeat: no-repeat;
-          background-size:
-            5px 5px,
-            5px 5px,
-            1px 1.5em;
-        }
-
-        &:focus {
-          background-image:
-            linear-gradient(45deg, gray(30) 50%, transparent 50%),
-            linear-gradient(135deg, transparent 50%, gray(30) 50%),
-            linear-gradient(to right, gray(25), gray(25));
-          background-position:
-            calc(100% - 15px) 1em,
-            calc(100% - 20px) 1em,
-            calc(100% - 2.5em) 0.5em;
-          border-color: gray(15);
-          outline: 0;
-        }
-
-        option {
-          font-size: 1.4rem;
-          background-color: var(--color-sel-opt);
-        }
-      }
-
-      output {
-        position: relative;
-        margin-left: 10px;
-
-        &::before {
-          position: absolute;
-          top: 10px;
-          left: -7px;
-          width: 0;
-          height: 0;
-          content: '';
-          border-top: 7px solid transparent;
-          border-right: 7px solid gray(15);
-          border-bottom: 7px solid transparent;
-        }
-      }
-
-      input[type='range'] {
-        &,
-        &::-webkit-slider-runnable-track,
-        &::-webkit-slider-thumb {
-          appearance: none;
-        }
-
-        width: 83%;
-        padding: 0;
-        margin-left: -10px;
-        font-size: 1em;
-        cursor: grabbing;
-        background: none;
-        border: solid 0 transparent;
-        border-width: 0.25em $h-diff;
-        border-radius: 0.25em;
-
-        &::-webkit-slider-runnable-track {
-          @include track();
-        }
-
-        &::-moz-range-track {
-          @include track();
-        }
-
-        &::-ms-track {
-          @include track();
-          color: transparent;
-        }
-
-        &::-webkit-slider-thumb {
-          margin-top: -$h-diff;
-          @include thumb();
-        }
-
-        &::-moz-range-thumb {
-          @include thumb();
-        }
-
-        &::-ms-thumb {
-          @include thumb();
-        }
-
-        &::-ms-fill-lower,
-        &::-ms-tooltip {
-          display: none;
-        }
-
-        @for $i from 1 through 3 {
-          &:nth-of-type(#{$i}) {
-            $bg: nth($track-bg, $i);
-
-            color: nth($c, $i);
-
-            &::-webkit-slider-runnable-track {
-              background: $bg;
-            }
-
-            &::-moz-range-track {
-              background: $bg;
-            }
-
-            &::-ms-track {
-              background: $bg;
-            }
-          }
-      }
-      }
+    p {
+      margin-top: 10px;
+      font-size: 1.8rem;
+      color: gray(50);
     }
   }
-}
 
-.view {
-  display: flex;
-  margin-top: 8vh;
-  font-family: var(--font-family-head);
-  flex-direction: column;
-
-  ul {
+  .svg-cat {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-    gap: 2vw;
+    margin-top: 8vh;
+    justify-content: center;
+    grid-template-columns: repeat(5, 164px);
+    gap: 3vw;
 
-    li {
+    .cat-name {
+      text-transform: uppercase;
+
+      &::after {
+        position: absolute;
+        bottom: -4px;
+        display: block;
+        width: 0;
+        height: 1px;
+        content: "";
+        background-color: var(--color-contrast-higher);
+        transition: 0.5s linear;
+      }
+    }
+
+    cat-no {
+      font-family: var(--font-family-head);
+    }
+
+    a {
       display: flex;
+      width: 100%;
+      height: 100%;
+      padding: 10px 10px 0;
+      color: gray(24);
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      background: var(--color-svg-hover);
+      transition: 0.5s linear;
 
-      span,
-      em {
-        display: grid;
-      }
+      &:hover {
+        color: var(--color-contrast-higher);
+        background: var(--color-theme-def);
+        border-radius: 8px;
+        transition: 0.5s linear;
 
-      span {
-        position: relative;
-      //  width: 120px;
-      //  height: 120px;
-        place-items: center;
-        //background-color: gray(10);
-        //border-radius: 6px;
-      }
-
-      em {
-        padding-top: 24px;
-        color: var(--color-contrast-high);
-        text-transform: capitalize;
-      }
-
-      svg {
-        display: inline-block;
-        width: 48px;
-        height: 48px;
-
-        path,
-        circle,
-        ellipse,
-        line,
-        rect {
-          fill: none;
-          stroke: var(--color-contrast-higher);
-          stroke-width: 0.8;
+        .cat-name::after {
+          width: 100%;
+          transform: 0.5s linear;
         }
       }
     }
-  }
-}
 
+    svg {
+      width: 102px;
+      margin: 14px 0;
+    }
+
+    ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 10px 0;
+
+      li {
+        position: relative;
+      }
+    }
+  }
+
+    .navigator {
+      h4 {
+        text-transform: uppercase;
+        letter-spacing: 0.4rem;
+
+        span {
+          display: inline-block;
+          font-size: 1.8rem;
+          vertical-align: top;
+        }
+      }
+
+      ul {
+        padding-top: 14px;
+        margin-top: -2px;
+        margin-left: 4px;
+        border-left: 1px solid var(--color-contrast-higher);
+
+        li {
+          position: relative;
+          left: -2px;
+
+          a {
+            display: inline-flex;
+            padding: 8px 0 8px 24px;
+            color: gray(50);
+            transition: color 0.5s;
+
+            &:hover,
+            &.active {
+              color: var(--color-contrast-higher);
+              border-left: 3px solid var(--color-link);
+              transition: color 0.5s;
+            }
+
+            &.active {
+              border-left-color: hsl(202, 42%, 59%);
+              transition: color 0.5s;
+            }
+          }
+        }
+      }
+
+      p {
+        margin-top: 4vh;
+
+        span {
+          font-size: 4.8rem;
+        }
+
+        em {
+          color: gray(50);
+        }
+      }
+    }
