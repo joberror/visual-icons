@@ -73,7 +73,7 @@ svg_all.forEach((arr) => {
 
 // --------------- Debugging and test ------------------------------------------------
 
-console.log(svg_all); //??
+// console.log(svg_all);
 
 // --------------- Page, routing and navigation --------------------------------------
 

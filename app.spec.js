@@ -1,0 +1,1 @@
+console.log(this.svg_all);

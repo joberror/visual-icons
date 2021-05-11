@@ -1,11 +1,13 @@
-module.exports = function () {
+module.exports = function (wallaby) {
+  require('fs-extra').ensureDirSync(wallaby.localProjectDir);
+
   return {
     files: [
       'app.js'
     ],
 
     tests: [
-      'app.js'
+      'app.spec.js'
     ],
 
     env: {
@@ -13,4 +15,5 @@ module.exports = function () {
       runner: 'node'
     }
   };
+
 };
