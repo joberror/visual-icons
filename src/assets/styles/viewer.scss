@@ -193,28 +193,31 @@ $h-diff: ($thumb-h - $track-h)/2;
     > div {
       display: flex;
       margin-bottom: 6vh;
-      flex-direction: row;
-      border-bottom: 1px solid gray(20);
+      flex-direction: column;
+      // border-bottom: 1px solid gray(20);
     }
 
     .svg-info {
-      width: 12vw;
+      position: sticky;
+      top: 70px;
+      z-index: 0;
+      display: flex;
+      padding: 24px 0 36px;
+      margin-bottom: 12vh;
+      justify-content: center;
+      background: var(--color-bg);
 
-      span,
-      em {
-        display: block;
-        margin: 0 0 10px;
-        font-weight: 500;
-      }
-
-      span {
+      .cat-split {
+        margin: 0 4vh;
         font-size: 1.4rem;
         color: gray(50);
       }
 
-      em {
+      .cat-name,
+      .cat-no {
         font-family: var(--font-family-head);
         font-size: 2.4rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
       }
@@ -222,9 +225,7 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     .svgs {
       display: grid;
-      width: 75vw;
       margin-bottom: 48px;
-      margin-left: auto;
       flex-direction: column;
       grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
       gap: 4vw;

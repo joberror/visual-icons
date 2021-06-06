@@ -19,12 +19,9 @@ prepend content
 		each name, index in catName
 			div(id="cat-" + name)
 				ul.svg-info
-					li.cat-name
-						span ICON PACK:
-						em= name
-					li.cat-no
-						span NO OF ICONS:
-						em= catTotal[index]
+					li.cat-name= name
+					li.cat-split -
+					li.cat-no= catTotal[index]
 
 				ul.svgs
 					each svg in catSvg[index]
