@@ -1,7 +1,7 @@
 let
   colorInput = document.getElementById('colorVal'),
   strokeInput = document.getElementById('str_width'),
-  getStrokeOutput = document.querySelector('output'),
+  getStrokeOutput = document.querySelector('.output'),
   viewerId;
 
 [colorInput, strokeInput].forEach((el) => {

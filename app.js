@@ -5,10 +5,29 @@ const
   path = require('path'),
   app = express(),
   fs = require('fs'),
-  sassMiddleware = require('node-sass-middleware'),
+  sass = require('sass'),
+  electricity = require('electricity'),
   assets = path.join(__dirname, "src/assets/"),
   views = path.join(__dirname, "src/views"),
-  router = express.Router();
+  router = express.Router(),
+
+  // Electricity options
+  options = {
+    hashify: true,
+    headers: {},
+    hostname: '',
+    sass: {},
+    snockets: {},
+    uglifyjs: {
+      enabled: true,
+      compress: {
+        sequences: true
+      }
+    },
+    uglifycss: {
+      enabled: true
+    }
+  };
 
 // --------- Configs and defaults -----------------------------------------------------
 
@@ -16,17 +35,9 @@ const
 app.set('view engine', 'pug');
 // Set directory of templates
 app.set("views", views);
-// Sass Middleware
-app.use(sassMiddleware({
-  /* Options */
-  src: path.join(assets, 'styles'),
-  debug: true,
-  outputStyle: 'compressed',
-  prefix: '/styles' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
-}));
 
 // Set asset folder to `public` folder
-app.use(express.static(assets));
+app.use(electricity.static(assets, options));
 
 // Listen on server
 app.listen(4000, () => {

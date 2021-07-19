@@ -2,22 +2,24 @@ block variables
 
 doctype html
 html(lang='en')
-	include svg.pug
-	title #{title}
-	meta(charset="UTF-8")
-	-
-	each key in meta
-		each content, handle in key
-			meta(name= handle, content= content)
+	head
+		include svg.pug
+		meta(charset="UTF-8")
+		-
+		each key in meta
+			each content, handle in key
+				meta(name= handle, content= content)
 
-	base(href='/')
-	-
-	each key in link
-		each content, handle in key
-			link(rel= handle, href= content)
+		base(href='/')
+		-
+		each key in link
+			each content, handle in key
+				link(rel= handle, href= content)
 
-	if css_file_name
-		link(rel='stylesheet', href='/styles/' + css_file_name)
+		title #{title}
+
+		if css_file_name
+			link(rel='stylesheet', href='/styles/' + css_file_name)
 
 	body(data-theme='default')
 		nav
