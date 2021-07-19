@@ -6,7 +6,7 @@
 	"description": "Tasty and curated visual icons for developers",
 	"scripts": {
 		"dev": "nodemon app.js",
-		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.scss, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"devDependencies": {
 		"@primer/css": "^16.3.0",
@@ -16,7 +16,6 @@
 		"fibers": "^5.0.0",
 		"fs-extra": "^10.0.0",
 		"http-proxy": ">=1.18.1",
-		"node-sass": "^5.0.0",
 		"nodemon": "^2.0.7",
 		"postcss": "^8.2.15",
 		"pug": "^3.0.2",
@@ -25,18 +24,17 @@
 		"stylelint": "^13.13.1",
 		"stylelint-config-recommended": "^4.0.0",
 		"stylelint-config-standard": "^21.0.0",
-		"stylelint-images": "^2.0.1",
 		"stylelint-order": "^4.1.0",
 		"yargs-parser": "^20.2.6"
 	},
 	"dependencies": {
 		"caniuse-lite": "^1.0.30001228",
+		"electricity": "^2.8.0",
 		"express": "4.17.1",
 		"jest": "26.6.3",
 		"jest-cli": "26.6.3",
 		"lodash": "^4.17.21",
 		"lodash.template": "^4.5.0",
-		"node-sass-middleware": "^0.11.0",
 		"object-path": ">=0.11.5",
 		"stylelint-config-primer": "^11.0.1",
 		"stylelint-config-sass-guidelines": "^8.0.0",
