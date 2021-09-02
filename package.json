@@ -35,7 +35,7 @@
 		"jest-cli": "26.6.3",
 		"lodash": "^4.17.21",
 		"lodash.template": "^4.5.0",
-		"object-path": ">=0.11.5",
+		"object-path": ">=0.11.6",
 		"stylelint-config-primer": "^11.0.1",
 		"stylelint-config-sass-guidelines": "^8.0.0",
 		"ua-parser-js": "^0.7.28",
