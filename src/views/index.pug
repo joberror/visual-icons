@@ -1,23 +1,39 @@
 extends layout.pug
 
-block content
-	section.desc
-		h1 Simply curated and free visual icons for #[em UI] & #[em UX]
+prepend content
+	.panel-header
+		h4 TOOLS
+		hr
+		.color-config color:
+			span
+				em(data-jscolor="{valueElement: '#color_val'}")
+				input(id='color_val')
+		hr
+		.stroke-config
+			label(for="str-width") weight:
+			input(type="range", min="0.8", max="1.4", id="str_width", step="0.1", value="1")
+			span.output 1.0
 
-	section.preview
-		div
-			ul.icons
-				-
-				each svg in svgSample[0]
-					li
-						span
-							svg(data-url='./svg-sample/'+svg)
-						em= svg.split('\\').pop().split('/').pop().slice(0, -4)
-			p
-				a(href='/viewer', title='View all icons').view-link View all
-				span /
-				a(href='/features', title='Features, todo and updates').info-link features
+	.viewer(id="viewer")
+		-
+		each name, index in catName
+			div(id="cat-" + name)
+				ul.svg-info
+					li.cat-name= name
+					li.cat-split -
+					li.cat-no= catTotal[index]
+
+				ul.svgs
+					each svg in catSvg[index]
+						li
+							span #[svg(data-url="/svgs/" + svg)]
+							em= svg.split('\\').pop().split('/').pop().slice(0, -4)
+
 
 block variables
-	- var title = "Visual Icons"
-	- var css_file_name = "home.css"
+	- var title = "Visual Icons: viewer"
+	- var css_file_name = "viewer.css"
+
+block importScripts
+	script(src='./scripts/jscolor.min.js')
+

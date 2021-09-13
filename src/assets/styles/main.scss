@@ -38,6 +38,9 @@ $mq-breakpoints: (
   // button
   --color-theme-def: hsl(212, 78%, 47%);
 
+  // Theme switch
+  --color-switch-hover: hsl(255, 11%, 7%);
+
   // invert
   --i-color-contrast-higher: black;
 
@@ -64,6 +67,10 @@ $mq-breakpoints: (
 
   // invert
   --i-color-contrast-higher: white;
+
+  // Theme switch
+  --color-switch-hover: hsl(0, 0%, 81%);
+
 }
 // Button
 .btn-link {
@@ -81,6 +88,14 @@ body {
   line-height: var(--line-height);
   flex-direction: column;
   text-rendering: optimizeLegibility;
+
+  &.transition,
+  &.transition *,
+  &.transition *:before,
+  &.transition *:after {
+    transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms!important;
+    transition-delay: 0!important;
+  }
 
   nav {
     display: flex;
@@ -130,6 +145,45 @@ body {
       border-radius: 2px;
       align-self: flex-start;
     }
+
+    .theme {
+      margin-right: 14px;
+
+      a {
+        display: inline-block;
+
+        span {
+          width: 21px;
+          height: 21px;
+          display: inline-block;
+          padding: 4px;
+          border-radius: 100%;
+          transition: all 500ms ease-out;
+
+
+          svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+              stroke: var(--color-contrast-higher);
+              stroke-width: 0.5;
+            }
+
+            circle {
+              fill: var(--color-contrast-higher);
+            }
+          }
+        }
+
+        &:hover {
+          span {
+            background-color: var(--color-switch-hover);
+            transition: all 500ms ease-in-out;
+          }
+        }
+      }
+    }
   }
 
   .content {
@@ -139,7 +193,7 @@ body {
 
   .footer {
     display: flex;
-    margin-bottom: 2vh;
+    padding-bottom: 4vh;
     vertical-align: middle;
     flex-shrink: 0;
     flex-direction: row;

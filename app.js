@@ -92,23 +92,11 @@ svg_all.forEach((arr) => {
 router.get('/', (req, res) => {
   res.render('', {
     // Pass SVG array to Pug for processing
-    svgSample: svg_ex
-  });
-});
-
-// Register View page
-router.get('/viewer', (req, res) => {
-  res.render('viewer', {
-    // Pass SVG array to Pug for processing
+    svgSample: svg_ex,
     catSvg: svg_all,
     catTotal: total_per_cat,
     catName: svg_cat
   });
-});
-
-// Register Feature page
-router.get('/features', (req, res) => {
-  res.render('features', {});
 });
 
 app.use('/', router);

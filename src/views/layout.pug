@@ -27,8 +27,12 @@ html(lang='en')
 				li
 					a(href='/', title='Homepage',).logo VISUAL#[em ICONS] #[span]
 				li.ver 1.0
+				li.theme
+					a(href='', title='Switch Light or Dark theme', data-state='1').theme-btn
+						span
+							svg(data-url='./svg-ui/themer.svg')
 				li.dl
-					a(href='', title='Github → Download').btn-link Download
+					a(href='', title='Github → Download').btn-link Get it
 
 		section.content
 			block content
@@ -46,8 +50,8 @@ html(lang='en')
 		block importScripts
 
 		script(type='module').
-			import { svgLoader as svg } from './scripts/main.min.js';
-			// initiate svg module
-			svg.init();
+			import { explr as explorer } from './scripts/main.js';
+			// initiate all module
+			explorer.init();
 
 		block scripts
