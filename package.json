@@ -9,20 +9,20 @@
 		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.scss, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.26.14",
+		"browser-sync": "^2.27.7",
 		"cssnano": "^5.0.8",
 		"fibers": "^5.0.0",
 		"fs-extra": "^10.0.0",
 		"http-proxy": ">=1.18.1",
-		"nodemon": "^2.0.7",
-		"postcss": "^8.2.15",
+		"nodemon": "^2.0.14",
+		"postcss": "^8.3.11",
 		"pug": "^3.0.2",
-		"sass": "^1.32.12",
+		"sass": "^1.43.4",
 		"sass-mq": "^5.0.1",
-		"yargs-parser": "^20.2.6"
+		"yargs-parser": "^20.2.9"
 	},
 	"dependencies": {
-		"caniuse-lite": "^1.0.30001228",
+		"caniuse-lite": "^1.0.30001274",
 		"electricity": "^2.8.0",
 		"express": "4.17.1",
 		"jest": "^27.3.1",
@@ -30,7 +30,7 @@
 		"lodash": "^4.17.21",
 		"lodash.template": "^4.5.0",
 		"object-path": ">=0.11.8",
-		"ua-parser-js": "^0.7.28",
-		"xmlhttprequest-ssl": ">=1.6.2"
+		"ua-parser-js": "^1.0.2",
+		"xmlhttprequest-ssl": ">=2.0.0"
 	}
 }
