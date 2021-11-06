@@ -72,13 +72,11 @@
 %btn-mixin {
   display: flex;
   padding: 12px;
-  color: var(--color-contrast-higher);
-  border: 2px solid gray(20);
+  // border: 2px solid gray(20);
   border-radius: 4px;
   transition: 1s linear;
 
   &:hover {
-    color: var(--color-bg);
-    background-color: var(--color-contrast-higher);
+    transition: 1s linear;
   }
 }

@@ -2,15 +2,14 @@ extends layout.pug
 
 prepend content
 	.panel-header
-		h4 TOOLS
-		hr
+		h4 CONFIG:
 		.color-config color:
+			hr
 			span
 				em(data-jscolor="{valueElement: '#color_val'}")
 				input(id='color_val')
-		hr
 		.stroke-config
-			label(for="str-width") weight:
+			label(for="str_width") weight:
 			input(type="range", min="0.8", max="1.4", id="str_width", step="0.1", value="1")
 			span.output 1.0
 

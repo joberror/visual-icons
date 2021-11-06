@@ -1,16 +1,12 @@
+// Sass Variables
+// Breakpoints
+
+@use '../../../node_modules/sass-mq/mq';
+
 // Imports
-@import "../../../node_modules/sass-mq/mq";
 @import "reset";
 @import "mixins";
 
-// Sass Variables
-// Breakpoints
-$mq-breakpoints: (
-  "phone": 480px,
-  "tablet": 768px,
-  "desktop": 1300px,
-  "wide": 1600px,
-);
 
 // Define customs
 :root,
@@ -75,6 +71,18 @@ $mq-breakpoints: (
 // Button
 .btn-link {
   @extend %btn-mixin;
+
+  color: white;
+  background-color: var(--color-dl);
+
+  &:hover {
+    background-color: darken(hsl(153, 68%, 42%), 10%)
+  }
+
+  @include mq.mq($until: tablet) {
+    font-size: small;
+    padding: 8px;
+  }
 }
 // Scrollbar
 @include scrollbar(var(--color-bg), #{gray(10)}, 0, 1px);
@@ -82,11 +90,12 @@ $mq-breakpoints: (
 // Theme
 body {
   display: flex;
-  margin: 0 4vw;
+  margin: 0 40px;
   font-family: var(--font-family);
   font-size: var(--font-size);
   line-height: var(--line-height);
   flex-direction: column;
+  box-sizing: border-box;
   text-rendering: optimizeLegibility;
 
   &.transition,
@@ -99,7 +108,7 @@ body {
 
   nav {
     display: flex;
-    margin-top: 2vh;
+    margin-top: 24px;
     flex-direction: row;
     align-items: center;
 
@@ -129,6 +138,10 @@ body {
         height: 8px;
         margin-left: -10px;
         background-color: gray(60);
+      }
+
+      @include mq.mq($until: tablet) {
+        font-size: 20px;
       }
     }
 
@@ -193,59 +206,49 @@ body {
 
   .footer {
     display: flex;
-    padding-bottom: 4vh;
+    padding-bottom: 40px;
     vertical-align: middle;
     flex-shrink: 0;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    .license {
+      a {
+        display: inline-block;
+        padding: 2px 4px;
+        font-weight: 500;
+        color: var(--color-bg);
+        background-color: var(--color-contrast-higher);
+        border-radius: 2px;
+
+        &:hover {
+          color: var(--color-contrast-higher);
+          background-color: var(--color-bg);
+        }
+      }
+    }
 
     .social {
-      display: flex;
-
       ul {
-        margin-right: 20px;
+        display: flex;
+        flex-direction: row;
+
+        li {
+          margin-right: 18px;
+        }
       }
 
       a {
         transition: 500ms linear;
+        color: var(--color-contrast-higher);
 
         &:hover {
           transition: 500ms linear;
+          opacity: 0.5;
         }
       }
 
-      .license {
-        a {
-          display: inline-block;
-          padding: 2px 4px;
-          font-weight: 500;
-          color: var(--color-bg);
-          background-color: var(--color-contrast-higher);
-          border-radius: 2px;
-
-          &:hover {
-            color: var(--color-contrast-higher);
-            background-color: var(--color-bg);
-          }
-        }
-      }
-
-      .github {
-        display: flex;
-
-        li {
-          margin-left: 10px;
-        }
-
-        a {
-          color: var(--color-contrast-higher);
-
-          &:hover {
-            opacity: 0.5;
-          }
-        }
-      }
     }
 
     .dev {
@@ -266,5 +269,18 @@ body {
         color: var(--color-theme-def);
       }
     }
+
+    @include mq.mq($until: tablet) {
+      flex-direction: column;
+      align-items: start;
+
+      > li {
+        margin-top: 18px;
+      }
+    }
+  }
+
+  @include mq.mq($until: tablet) {
+    margin: 0 16px;
   }
 }

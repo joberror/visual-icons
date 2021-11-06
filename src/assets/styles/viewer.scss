@@ -1,3 +1,7 @@
+// Sass Variables
+// Breakpoints
+
+@use '../../../node_modules/sass-mq/mq';
 @import "mixins";
 
 $track-w: 8em;
@@ -61,12 +65,14 @@ $h-diff: ($thumb-h - $track-h)/2;
     top: 0;
     z-index: 1;
     display: flex;
-    padding: 2vh 0 4.5vh;
+    padding: 40px 0;
     flex-direction: row;
     background-color: var(--color-bg);
     align-items: center;
+    justify-content: space-between;
 
     hr {
+      width: 24vw;
       display: inline-block;
       flex: 1;
       height: 0;
@@ -93,8 +99,9 @@ $h-diff: ($thumb-h - $track-h)/2;
     .color-config {
       span {
         display: inline-flex;
-        width: 38px;
-        height: 8px;
+        width: 30px;
+        height: 10px;
+        margin-left: 8px;
         padding: 4px;
         border: 1px solid gray(30);
         border-radius: 2px;
@@ -185,11 +192,30 @@ $h-diff: ($thumb-h - $track-h)/2;
         }
       }
     }
+
+    @include mq.mq($until: tablet) {
+      flex-direction: column;
+      align-items: start;
+      padding: 22px 0;
+
+      h4 {
+        margin-bottom: 1vh
+      }
+
+      div {
+        margin-top: 2vh;
+        width: 100%;
+      }
+
+      hr,
+      .stroke-config input {
+        width: 53vw;
+      }
+    }
   }
 
   .viewer {
     display: flex;
-    margin-top: 2vh;
     flex-direction: column;
 
     > div {
@@ -201,11 +227,11 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     .svg-info {
       position: sticky;
-      top: 70px;
+      top: 82px;
       z-index: 0;
       display: flex;
       padding: 24px 0 36px;
-      margin-bottom: 12vh;
+      margin-bottom: 40px;
       justify-content: left;
       background: var(--color-bg);
 
@@ -251,6 +277,22 @@ $h-diff: ($thumb-h - $track-h)/2;
         font-weight: 500;
         color: hsl(255, 7%, 11%);
         text-transform: capitalize;
+      }
+    }
+
+    @include mq.mq($until: tablet) {
+      .svg-info {
+        top: 128px;
+        justify-content: center;
+      }
+
+      .svgs span {
+        width: 32px;
+        height: 32px;
+      }
+
+      li {
+        margin-bottom: 40px;
       }
     }
   }
