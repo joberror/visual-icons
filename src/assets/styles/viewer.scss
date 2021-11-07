@@ -286,7 +286,8 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     @include mq.mq($until: tablet) {
       .svg-info {
-        top: 150px;
+        top: 160px;
+        padding: 24px 0;
         justify-content: center;
       }
 
