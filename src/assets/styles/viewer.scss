@@ -96,6 +96,11 @@ $h-diff: ($thumb-h - $track-h)/2;
       letter-spacing: 0.4rem;
     }
 
+    div {
+      padding: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
     .color-config {
       span {
         display: inline-flex;
@@ -209,7 +214,7 @@ $h-diff: ($thumb-h - $track-h)/2;
 
       hr,
       .stroke-config input {
-        width: 53vw;
+        width: 47vw;
       }
     }
   }
@@ -227,11 +232,10 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     .svg-info {
       position: sticky;
-      top: 82px;
+      top: 98px;
       z-index: 0;
       display: flex;
-      padding: 24px 0 36px;
-      margin-bottom: 40px;
+      padding: 24px 0 48px;
       justify-content: left;
       background: var(--color-bg);
 
@@ -275,14 +279,14 @@ $h-diff: ($thumb-h - $track-h)/2;
       em {
         font-size: 1.2rem;
         font-weight: 500;
-        color: hsl(255, 7%, 11%);
+        color: hsl(258, 7%, 26%);
         text-transform: capitalize;
       }
     }
 
     @include mq.mq($until: tablet) {
       .svg-info {
-        top: 128px;
+        top: 150px;
         justify-content: center;
       }
 

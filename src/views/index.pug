@@ -20,7 +20,7 @@ prepend content
 				ul.svg-info
 					li.cat-name= name
 					li.cat-split -
-					li.cat-no= catTotal[index]
+					li.cat-no= catTotal[index] + " icons"
 
 				ul.svgs
 					each svg in catSvg[index]
@@ -30,7 +30,7 @@ prepend content
 
 
 block variables
-	- var title = "Visual Icons: viewer"
+	- var title = "Visual Icons: Simple free icons for developers"
 	- var css_file_name = "viewer.css"
 
 block importScripts
