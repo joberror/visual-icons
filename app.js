@@ -6,6 +6,7 @@ const
   app = express(),
   fs = require('fs'),
   sass = require('sass'),
+  compression = require('compression'),
   electricity = require('electricity'),
   assets = path.join(__dirname, "src/assets/"),
   views = path.join(__dirname, "src/views"),
@@ -13,7 +14,7 @@ const
 
   // Electricity options
   options = {
-    hashify: true,
+    hashify: false,
     headers: {},
     hostname: '',
     sass: {},
@@ -30,6 +31,9 @@ const
   };
 
 // --------- Configs and defaults -----------------------------------------------------
+
+// Use Gzip compression
+app.use(compression());
 
 // Set template engine
 app.set('view engine', 'pug');

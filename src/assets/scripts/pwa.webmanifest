@@ -1,6 +1,6 @@
 {
     "name": "Visual Icons",
-    "short_name": "Vis-icon",
+    "short_name": "vs-icons",
     "icons": [{
         "src": "/google-touch-icon.png",
         "sizes": "512x512"

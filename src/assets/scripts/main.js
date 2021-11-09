@@ -76,8 +76,27 @@ explr = (() => {
         },
         themer = () => {
             // get theme switcher button and body element
-            let btn = document.querySelector('.theme-btn'),
+            let
+                btn = document.querySelector('.theme-btn'),
                 htmlBody = document.body;
+
+
+            const
+                // check for dark mode preference at Os level
+                preferDarkScheme = window.matchMedia("(prefers-color-scheme: dark)"),
+                // get user theme preference from local storage
+                currentTheme = localStorage.getItem("theme");
+
+            // if user's preference is dark from local storage
+            if (currentTheme == "dark") {
+                // toggle dark mode
+                htmlBody.dataset.theme = "default";
+                btn.dataset.state = 0;
+            // if user's preference is light from local storage
+            } else if (currentTheme == "light") {
+                htmlBody.dataset.theme = "light";
+                btn.dataset.state = 1;
+            }
 
             // attach an event handler
             btn.addEventListener('click', function (e) {
@@ -88,11 +107,15 @@ explr = (() => {
                 if (this.dataset.state === "1") {
                     // apply theme - Light
                     htmlBody.dataset.theme = "light";
+                    // set button state
                     this.dataset.state = 0;
+                    // set preference to localStorage
+                    localStorage.setItem("theme", "light");
                 } else {
                     // apply default theme - Dark
                     htmlBody.dataset.theme = "default";
                     this.dataset.state = 1;
+                    localStorage.setItem("theme", "dark");
                 }
 
                 e.preventDefault();
@@ -102,12 +125,19 @@ explr = (() => {
 
             // set and get all defaults
             let
+                // STROKE nad COLOR tools
+                // get Color value element
                 colorID = document.getElementById('color_val'),
+                // get stroke value element
                 strokeID = document.getElementById('str_width'),
+                // get output stroke element
                 outputID = document.querySelector('.output'),
-                viewerID;
+                viewerID,
 
-            // attach event to listen to element change
+                // COPY Command
+                allSVGHandle = document.querySelectorAll('a.svg-code');
+
+            // COLOR & STROKE: attach event to listen to element change
             [colorID, strokeID].forEach((el) => {
                 el.addEventListener('change', (event) => {
                     // get all svg child nodes
@@ -126,6 +156,15 @@ explr = (() => {
                             outputID.textContent = event.target.value;
                         }
                     });
+                });
+            });
+
+            //COPY command: attach event handler
+            allSVGHandle.forEach((el) => {
+                el.addEventListener('click', (ev) => {
+                    // write svg code to clipboard
+                    navigator.clipboard.writeText(el.querySelector('span').innerHTML);
+                    ev.preventDefault();
                 });
             });
         },

@@ -264,6 +264,12 @@ $h-diff: ($thumb-h - $track-h)/2;
         text-align: center;
       }
 
+      .svg-code {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+      }
+
       span {
         display: flex;
         width: 48px;
