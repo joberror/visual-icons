@@ -177,4 +177,4 @@ visualJS = (() => {
     };
 })();
 
-export default visualJS;
+export {visualJS};
