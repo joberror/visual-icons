@@ -12,6 +12,8 @@ const
   views = path.join(__dirname, "src/views"),
   router = express.Router(),
 
+  // Custom  node_modules
+
   // Electricity options
   options = {
     hashify: false,
@@ -85,6 +87,8 @@ svg_ex.push(
 svg_all.forEach((arr) => {
   total_per_cat.push(arr.length);
 });
+
+// Initialize custom module
 
 // --------------- Debugging and test ------------------------------------------------
 

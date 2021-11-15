@@ -1,6 +1,6 @@
-let explr;
+let visualJS;
 
-explr = (() => {
+visualJS = (() => {
     let
         // Load all SVGs
         // Example: <svg data-url="https://domain.com/img/logo.svg"></svg>.
@@ -74,7 +74,7 @@ explr = (() => {
                 }
             }
         },
-        themer = () => {
+        config = () => {
             // get theme switcher button and body element
             let
                 btn = document.querySelector('.theme-btn'),
@@ -102,7 +102,6 @@ explr = (() => {
             btn.addEventListener('click', function (e) {
                 // transition state
                 htmlBody.classList.toggle('transition');
-
                 // check button id to validate state
                 if (this.dataset.state === "1") {
                     // apply theme - Light
@@ -170,7 +169,7 @@ explr = (() => {
         },
         processAll = () => {
             loadSVG.init();
-            themer();
+            config();
             tools();
         };
     return {
@@ -178,6 +177,4 @@ explr = (() => {
     };
 })();
 
-export {
-    explr
-};
+export default visualJS;
