@@ -9,6 +9,8 @@
 		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.scss, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"devDependencies": {
+		"@types/pug": "^2.0.5",
+		"@types/sass": "^1.43.0",
 		"browser-sync": "^2.27.7",
 		"cssnano": "^5.0.8",
 		"fibers": "^5.0.0",
@@ -22,6 +24,8 @@
 		"yargs-parser": "^20.2.9"
 	},
 	"dependencies": {
+		"@prettier/plugin-pug": "^1.17.3",
+		"@types/express-serve-static-core": "^4.17.25",
 		"caniuse-lite": "^1.0.30001274",
 		"compression": "^1.7.4",
 		"electricity": "^2.8.0",

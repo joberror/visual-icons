@@ -1,3 +1,5 @@
+// @ts-check
+
 let visualJS;
 
 visualJS = (() => {
@@ -77,6 +79,7 @@ visualJS = (() => {
         config = () => {
             // get theme switcher button and body element
             let
+                /** @type {HTMLElement} */
                 btn = document.querySelector('.theme-btn'),
                 htmlBody = document.body;
 
@@ -91,11 +94,11 @@ visualJS = (() => {
             if (currentTheme == "dark") {
                 // toggle dark mode
                 htmlBody.dataset.theme = "default";
-                btn.dataset.state = 0;
+                btn.dataset.state = "0";
             // if user's preference is light from local storage
             } else if (currentTheme == "light") {
                 htmlBody.dataset.theme = "light";
-                btn.dataset.state = 1;
+                btn.dataset.state = "1";
             }
 
             // attach an event handler
@@ -107,13 +110,13 @@ visualJS = (() => {
                     // apply theme - Light
                     htmlBody.dataset.theme = "light";
                     // set button state
-                    this.dataset.state = 0;
+                    this.dataset.state = "0";
                     // set preference to localStorage
                     localStorage.setItem("theme", "light");
                 } else {
                     // apply default theme - Dark
                     htmlBody.dataset.theme = "default";
-                    this.dataset.state = 1;
+                    this.dataset.state = "1";
                     localStorage.setItem("theme", "dark");
                 }
 
@@ -131,10 +134,10 @@ visualJS = (() => {
                 strokeID = document.getElementById('str_width'),
                 // get output stroke element
                 outputID = document.querySelector('.output'),
-                viewerID,
+                viewerID;
 
                 // COPY Command
-                allSVGHandle = document.querySelectorAll('a.svg-code');
+                //allSVGHandle = document.querySelectorAll('a.svg-code');
 
             // COLOR & STROKE: attach event to listen to element change
             [colorID, strokeID].forEach((el) => {
@@ -159,13 +162,13 @@ visualJS = (() => {
             });
 
             //COPY command: attach event handler
-            allSVGHandle.forEach((el) => {
-                el.addEventListener('click', (ev) => {
+            //allSVGHandle.forEach((el) => {
+                //el.addEventListener('click', (ev) => {
                     // write svg code to clipboard
-                    navigator.clipboard.writeText(el.querySelector('span').innerHTML);
-                    ev.preventDefault();
-                });
-            });
+                    //navigator.clipboard.writeText(el.querySelector('span').innerHTML);
+                    //ev.preventDefault();
+                //});
+            //});
         },
         processAll = () => {
             loadSVG.init();

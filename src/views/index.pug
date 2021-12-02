@@ -25,7 +25,7 @@ prepend content
 				ul.svgs
 					each svg in catSvg[index]
 						li
-							a(href='#', title='click to copy svg code').svg-code
+							a(href='/svgs/' + svg, title='click to download').svg-link
 								span #[svg(data-url="/svgs/" + svg)]
 								em= svg.split('\\').pop().split('/').pop().slice(0, -4)
 
