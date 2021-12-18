@@ -6,7 +6,7 @@
 	"description": "Tasty and curated visual icons for developers",
 	"scripts": {
 		"dev": "nodemon app.js",
-		"ui": "browser-sync start --proxy=localhost:3000 --files='**/*.scss, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json,yaml,html}\""
 	},
 	"devDependencies": {
 		"@types/pug": "^2.0.5",
@@ -30,12 +30,20 @@
 		"compression": "^1.7.4",
 		"electricity": "^2.8.0",
 		"express": "4.17.1",
+		"husky": "^7.0.4",
 		"jest": "^27.3.1",
 		"jest-cli": "^27.3.1",
 		"lodash": "^4.17.21",
 		"lodash.template": "^4.5.0",
 		"object-path": ">=0.11.8",
+		"prettier": "^2.5.1",
+		"pretty-quick": "^3.1.2",
 		"ua-parser-js": "^1.0.2",
 		"xmlhttprequest-ssl": ">=2.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
 	}
 }

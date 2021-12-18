@@ -26,26 +26,33 @@ html(lang='en')
 		nav
 			ul
 				li
-					a(href='/', title='Homepage',).logo VISUAL#[em ICONS]
+					a(href='/', title='Homepage',).logo visual#[em icons]
 				li.ver v1.0
-				li.theme
-					a(href='', title='Switch to Light or Dark mode', data-state='1').theme-btn
-						span
-							svg(data-url='./svg-ui/themer.svg')
-				li.dl
-					a(href='', title='Github → Download').btn-link GetThemAll
+				li
+					ul
+						li.dl
+							a(href='https://github.com/joberror/visual-icons', title='Github → Project page').btn-link.git
+								span.icon #[svg(data-url='./svg-ui/git-dl.svg')]
+								span.mini-det Git
+						li.donate
+							a(href='https://commerce.coinbase.com/checkout/ef9bfd50-5cfe-4fde-ab95-9b04f2a8efe6', title='Donate → keep project alive').btn-link.dn
+								span.icon #[svg(data-url='./svg-ui/coins.svg')]
+								span.mini-det Donate
+						li.twt
+							a(href='https://twitter.com/intent/tweet?url=https%3A%2F%2Fbit.ly%2Fvs-icons&via=iamjoberror&text=Visual%20Icons%3A%20a%20300+%20free%2C%20curated%2C%20and%20well-designed%20SVG%20icons%20for%20UI%20designs%2C%20app%20%26%20web%20development%20projects&hashtags=UI%2CDev%2CWebDev%2CUIIcons%2CIcons%2CSVGIcons%2CSVG%2CUX%2CUXIcons%2CwebUI%2CappUI', title='Tweet → spread the word').btn-link.twt
+								span.icon #[svg(data-url='./svg-ui/twitter.svg')]
+								span.mini-det Tweet
 
 		section.content
 			block content
 
 		ul.footer
 			li.license #[a(href='https://creativecommons.org/licenses/by/3.0/', title='License → Creative Commons 3.0') CC-3.0]
-			li.social
-				ul
-					li #[a(href='https://twitter.com/intent/tweet?url=https%3A%2F%2Fbit.ly%2Fvs-icons&via=iamjoberror&text=Visual%20Icons%3A%20a%20300+%20free%2C%20curated%2C%20and%20well-designed%20SVG%20icons%20for%20UI%20designs%2C%20app%20%26%20web%20development%20projects&hashtags=UI%2CDev%2CWebDev%2CUIIcons%2CIcons%2CSVGIcons%2CSVG%2CUX%2CUXIcons%2CwebUI%2CappUI', title='Tweet → spread the word') .tweet]
-					li #[a(href='https://commerce.coinbase.com/checkout/ef9bfd50-5cfe-4fde-ab95-9b04f2a8efe6', title='Donate → keep project alive') .donate]
-					li #[a(href='https://github.com/joberror/visual-icons', title='Github → project page ') .github]
-			li.dev made with #[span #[svg(data-url='./svg-ui/love.svg')]] by #[a(href='https://iamjoberror.com/', title='Info → developer profile') i.am.joberror]
+			li.theme
+					a(href='', title='Switch to Light or Dark mode', data-state='1').btn-link.theme
+						span.icon #[svg(data-url='./svg-ui/display.svg')]
+						span.mini-det #[em]
+			li.dev made with #[span #[svg(data-url='./svg-ui/love.svg')]] by #[a(href='https://iamjoberror.com/', title='Info → developer profile') iamjoberror]
 
 		block importScripts
 

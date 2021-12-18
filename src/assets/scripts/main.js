@@ -43,7 +43,9 @@ visualJS = (() => {
 
                 // The file might not actually begin with "<svg>", and
                 // for that matter there could be none, or many.
-                let svg = parsed.getElementsByTagName('svg');
+                let
+                    /** @type {SVGElement} */
+                    svg = parsed.getElementsByTagName('svg');
                 if (svg.length) {
                     // But we only want the first.
                     svg = svg[0];
@@ -80,7 +82,7 @@ visualJS = (() => {
             // get theme switcher button and body element
             let
                 /** @type {HTMLElement} */
-                btn = document.querySelector('.theme-btn'),
+                btn = document.querySelector('.theme'),
                 htmlBody = document.body;
 
 

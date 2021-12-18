@@ -73,9 +73,8 @@ $h-diff: ($thumb-h - $track-h)/2;
     justify-content: space-between;
 
     hr {
-      width: 24vw;
       display: inline-block;
-      flex: 1;
+      flex-grow: 1;
       height: 0;
       margin: 0 1vw;
       vertical-align: middle;
@@ -84,6 +83,7 @@ $h-diff: ($thumb-h - $track-h)/2;
     }
 
     h4 {
+      width: 14%;
       font-weight: bold;
       letter-spacing: 0.4rem;
     }
@@ -94,10 +94,14 @@ $h-diff: ($thumb-h - $track-h)/2;
       font-weight: 500;
       color: hsl(0, 0%, 54%);
       text-transform: uppercase;
-      letter-spacing: 0.4rem;
+      letter-spacing: 0.3rem;
     }
 
     div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 40%;
       padding: 10px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
@@ -132,7 +136,7 @@ $h-diff: ($thumb-h - $track-h)/2;
       align-items: center;
 
       label {
-        margin-right: 10px;
+        //margin-right: 10px;
       }
 
       .output {
@@ -140,7 +144,7 @@ $h-diff: ($thumb-h - $track-h)/2;
         padding: 2px 6px;
         margin-left: 10px;
         font-size: 1.4rem;
-        //font-weight: bold;
+        font-weight: bold;
         border: 1px solid gray(30);
         border-radius: 2px;
       }
@@ -152,9 +156,8 @@ $h-diff: ($thumb-h - $track-h)/2;
           appearance: none;
         }
 
-        width: 24vw;
+        flex-grow: 1;
         padding: 0;
-        margin-left: -10px;
         font-size: 1em;
         color: gray(30);
         cursor: grabbing;
@@ -204,18 +207,17 @@ $h-diff: ($thumb-h - $track-h)/2;
       align-items: start;
       padding: 22px 0;
 
+      label,
+      .color-config,
+      a {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      div,
       h4 {
-        margin-bottom: 1vh
-      }
-
-      div {
-        margin-top: 2vh;
+        margin-bottom: 2vh;
         width: 100%;
-      }
-
-      hr,
-      .stroke-config input {
-        width: 47vw;
       }
     }
   }
@@ -307,18 +309,14 @@ $h-diff: ($thumb-h - $track-h)/2;
 
     @include mq.mq($until: tablet) {
       .svg-info {
-        top: 160px;
-        padding: 24px 0;
+        top: 180px;
+        padding: 10px 0 22px;
         justify-content: center;
       }
 
       .svgs span {
         width: 32px;
         height: 32px;
-      }
-
-      li {
-        margin-bottom: 40px;
       }
     }
   }

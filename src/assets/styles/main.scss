@@ -24,11 +24,7 @@
   --color-contrast-high: hsla(0, 0%, 89%, 0.322);
   --color-contrast-higher: white;
   --color-pink-contrast: hsl(352, 82%, 91%);
-  // svg
-  --color-svg-fill: hsla(0, 0%, 100%, 0.973);
-  // download
-  --color-dl: hsl(153, 68%, 42%);
-  --color-dl-svg: white;
+
   // forms
   --color-sel-opt: var(--color-bg);
   // button
@@ -51,6 +47,22 @@
 [data-theme] {
   color: var(--color-contrast-higher);
   background-color: var(--color-bg);
+
+  // svg
+  --color-svg-fill: hsla(0, 0%, 100%, 0.973);
+  // download
+  --color-dl-bg: hsl(147, 100%, 19%);
+  --color-dl-bg-hover: hsl(148, 100%, 9%);
+  // twitter
+  --color-twt-bg: hsl(199, 59%, 43%);
+  // donate
+  --color-donate-bg: rgb(199, 84, 55);
+  // theme
+  --color-theme-bg: hsl(0, 0%, 9%);
+  --color-theme-bg-hover: hsl(0, 0%, 6%);
+  --theme-content: "Dark";
+  --theme-svg-fill: var(--color-contrast-higher);
+  --theme-svg-stroke: none;
 }
 
 // Theme - Light
@@ -64,11 +76,15 @@
   // forms
   --color-sel-opt: var(--color-bg);
 
+  // theme
+  --theme-svg-fill: none;
+  --theme-svg-stroke: var(--color-contrast-higher);
+
   // invert
   --i-color-contrast-higher: white;
 
   // Theme switch
-  --color-switch-hover: hsl(0, 0%, 81%);
+  --theme-content: "Light";
 
   --color-svg-link-hover: hsla(189, 32%, 50%, 0.11);
 
@@ -78,15 +94,94 @@
   @extend %btn-mixin;
 
   color: white;
-  background-color: var(--color-dl);
+  align-items: center;
+  border-bottom: 2px solid;
 
-  &:hover {
-    background-color: darken(hsl(153, 68%, 42%), 10%)
+  span {
+    display: inline-block;
+
+    &.icon {
+      width: 18px;
+      height: 18px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path, circle, ellipse{
+          fill: none;
+          stroke: var(--color-contrast-higher);
+          stroke-width: 1.6pt;
+        }
+      }
+    }
+
+    &.mini-det {
+      margin-left: 14px;
+      text-align: center;
+      color: var(--color-contrast-higher);
+
+      em {
+        display: inline-block;
+        margin-top: 2px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &.git {
+    border-bottom-color: var(--color-dl-bg);
+
+    &:hover {
+      background: var(--color-dl-bg);
+    }
+  }
+
+  &.dn {
+    border-bottom-color: var(--color-donate-bg);
+
+    &:hover {
+      background: var(--color-donate-bg);
+    }
+  }
+
+  &.twt {
+    border-bottom-color: var(--color-twt-bg);
+
+    &:hover {
+      background: var(--color-twt-bg);
+    }
+  }
+
+  &.theme {
+    padding: 2px 6px;
+    font-weight: 500;
+    align-items: center;
+    border: 2px solid var(--color-contrast-higher);
+    border-radius: 4px;
+
+    &:hover {
+      //background: var(--color-theme-bg-hover);
+    }
+
+    span.icon svg {
+      path {
+        fill: var(--theme-svg-fill);
+        stroke: var(--theme-svg-stroke);
+      }
+    }
+
+    span.mini-det em::before{
+      content: var(--theme-content);
+    }
   }
 
   @include mq.mq($until: tablet) {
-    font-size: small;
-    padding: 8px;
+    span {
+      &.mini-det {
+        display: none;
+      }
+    }
   }
 }
 // Scrollbar
@@ -113,7 +208,6 @@ body {
 
   nav {
     display: flex;
-    margin-top: 24px;
     flex-direction: row;
     align-items: center;
 
@@ -126,10 +220,10 @@ body {
     }
 
     .logo {
+      margin-top: 6px;
       align-items: baseline;
       display: flex;
-      font-family: var(--font-family-head);
-      font-size: x-large;
+      font-size: 2.4rem;
       font-weight: 600;
       color: gray(40);
       flex-direction: column;
@@ -144,13 +238,10 @@ body {
         margin-left: -10px;
         background-color: gray(60);
       }
-
-      @include mq.mq($until: tablet) {
-        font-size: 20px;
-      }
     }
 
     .ver {
+      margin-top: 6px;
       display: inline-block;
       padding: 2px 4px;
       margin-right: auto;
@@ -159,48 +250,9 @@ body {
       font-weight: 500;
       line-height: 1;
       color: white;
-      background-color: var(--color-dl);
+      background-color: var(--color-dl-bg);
       border-radius: 2px;
       align-self: flex-start;
-    }
-
-    .theme {
-      margin-right: 14px;
-
-      a {
-        display: inline-block;
-
-        span {
-          width: 21px;
-          height: 21px;
-          display: inline-block;
-          padding: 4px;
-          border-radius: 100%;
-          transition: all 500ms ease-out;
-
-
-          svg {
-            width: 100%;
-            height: 100%;
-
-            path {
-              stroke: var(--color-contrast-higher);
-              stroke-width: 0.5;
-            }
-
-            circle {
-              fill: var(--color-contrast-higher);
-            }
-          }
-        }
-
-        &:hover {
-          span {
-            background-color: var(--color-switch-hover);
-            transition: all 500ms ease-in-out;
-          }
-        }
-      }
     }
   }
 
@@ -213,6 +265,7 @@ body {
     display: flex;
     padding-bottom: 40px;
     vertical-align: middle;
+    flex-wrap: wrap;
     flex-shrink: 0;
     flex-direction: row;
     align-items: center;
@@ -221,7 +274,7 @@ body {
     .license {
       a {
         display: inline-block;
-        padding: 2px 4px;
+        padding: 4px;
         font-weight: 500;
         color: var(--color-bg);
         background-color: var(--color-contrast-higher);
@@ -234,26 +287,9 @@ body {
       }
     }
 
-    .social {
-      ul {
-        display: flex;
-        flex-direction: row;
-
-        li {
-          margin-right: 18px;
-        }
-      }
-
-      a {
-        transition: 500ms linear;
-        color: var(--color-contrast-higher);
-
-        &:hover {
-          transition: 500ms linear;
-          opacity: 0.5;
-        }
-      }
-
+    .theme {
+      margin-left: 6px;
+      margin-right: auto;
     }
 
     .dev {
@@ -276,11 +312,13 @@ body {
     }
 
     @include mq.mq($until: tablet) {
-      flex-direction: column;
-      align-items: start;
 
       > li {
         margin-top: 18px;
+      }
+
+      .dev {
+        width: 100%;
       }
     }
   }

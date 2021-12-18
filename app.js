@@ -65,7 +65,9 @@ let
   // all svg file
   svg_all = [],
   // all sample svg file
-  svg_ex = [];
+  svg_ex = [],
+  // total svg
+  total_svg;
 
 // Source for all svg file and put it in array
 svg_cat.forEach((cat) => {
@@ -88,11 +90,16 @@ svg_all.forEach((arr) => {
   total_per_cat.push(arr.length);
 });
 
+// Get the total of all svg files
+total_svg = total_per_cat.reduce((a, b) => {
+  return +a + +b;
+});
+
 // Initialize custom module
 
 // --------------- Debugging and test ------------------------------------------------
 
-// console.log(svg_all);
+// console.log(total_svg);
 
 // --------------- Page, routing and navigation --------------------------------------
 
@@ -103,7 +110,8 @@ router.get('/', (req, res) => {
     svgSample: svg_ex,
     catSvg: svg_all,
     catTotal: total_per_cat,
-    catName: svg_cat
+    catName: svg_cat,
+    svgTotal: total_svg
   });
 });
 

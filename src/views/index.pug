@@ -2,14 +2,14 @@ extends layout.pug
 
 prepend content
 	.panel-header
-		h4 CONFIG:
-		.color-config color:
+		h4 #{svgTotal} ICONS
+		.color-config pick color:
 			hr
 			span
 				em(data-jscolor="{valueElement: '#color_val'}")
 				input(id='color_val')
 		.stroke-config
-			label(for="str_width") weight:
+			label(for="str_width") set weight:
 			input(type="range", min="0.8", max="1.4", id="str_width", step="0.1", value="1")
 			span.output 1.0
 
@@ -20,7 +20,7 @@ prepend content
 				ul.svg-info
 					li.cat-name= name
 					li.cat-split -
-					li.cat-no= catTotal[index] + " icons"
+					li.cat-no= catTotal[index]
 
 				ul.svgs
 					each svg in catSvg[index]

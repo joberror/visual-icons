@@ -71,9 +71,9 @@
 
 %btn-mixin {
   display: flex;
-  padding: 12px;
+  padding: 14px;
   // border: 2px solid gray(20);
-  border-radius: 4px;
+  // border-radius: 8px;
   transition: 1s linear;
 
   &:hover {
